@@ -1,0 +1,136 @@
+:root{
+	--accent: #0d6efd;
+	--muted: #6c757d;
+	--card-radius: 12px;
+}
+
+.projects-tabs .projects-tab-btn{
+	border-radius: 999px;
+	padding: 0.5rem 1rem;
+	font-weight: 600;
+}
+
+.projects-grid{
+	/* make columns stretch to equal height */
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	align-items: stretch;
+}
+
+.projects-grid .projects-card{
+	border-radius: var(--card-radius);
+	/* fixed total card height (includes image + body) so all cards match */
+	height: 420px;
+	overflow: hidden;
+	transition: transform .2s ease, box-shadow .2s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.projects-grid .projects-card:hover{
+	transform: translateY(-6px);
+	box-shadow: 0 12px 30px rgba(13,110,253,0.12);
+}
+
+.projects-card .card-body{
+	display: flex;
+	flex-direction: column;
+	/* allow body to grow and fill remaining card height */
+	flex: 1 1 auto;
+	height: auto;
+	padding: 1rem;
+}
+
+.project-title{
+	font-size: 1.05rem;
+	font-weight: 700;
+	margin: 0;
+}
+
+.project-desc{
+	color: var(--muted);
+	margin-top: .5rem;
+	margin-bottom: .75rem;
+	line-height: 1.3;
+	/* keep consistent height by limiting lines */
+	display: -webkit-box;
+		-webkit-line-clamp: 4;
+		line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.actions .btn{
+	flex: 1 1 auto;
+}
+
+@media (max-width: 767px){
+	.projects-grid .projects-card{
+		min-height: 260px;
+	}
+}
+
+.projects-tabs{gap:8px}
+
+/* image area at top of project card */
+.project-img-wrapper{
+	width: 100%;
+	height: 160px; /* fixed visual area */
+	overflow: hidden;
+	background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02));
+	/* fixed slice so card body height is consistent */
+	flex: 0 0 160px;
+}
+
+.project-img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* make sure the card's top corners are rounded even with the image */
+.projects-card .project-img-wrapper{
+	border-top-left-radius: var(--card-radius);
+	border-top-right-radius: var(--card-radius);
+}
+
+@media (max-width: 991px){
+	.projects-grid .projects-card{
+		height: 380px;
+	}
+	.project-img-wrapper{
+		height: 140px;
+		flex: 0 0 140px;
+	}
+}
+
+@media (max-width: 767px){
+	.projects-grid .projects-card{
+		height: 320px;
+	}
+	.project-img-wrapper{
+		height: 120px;
+		flex: 0 0 120px;
+	}
+}
+
+/* Dark / light variants so cards match the page background */
+.bg-dark .projects-card{
+	background-color: rgba(255,255,255,0.02); /* subtle tint on dark bg */
+	color: #e9ecef;
+	border: 1px solid rgba(255,255,255,0.04);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+.bg-dark .projects-card .project-desc{
+	color: rgba(233,236,239,0.8);
+}
+
+.bg-light .projects-card{
+	background-color: #ffffff;
+	color: inherit;
+	border: 1px solid rgba(0,0,0,0.04);
+	box-shadow: 0 12px 30px rgba(13,110,253,0.12);
+}
