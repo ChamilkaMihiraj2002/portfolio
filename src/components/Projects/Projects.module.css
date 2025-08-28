@@ -1,0 +1,204 @@
+:root{
+	--accent: #0d6efd;
+	--muted: #6c757d;
+	--card-radius: 12px;
+}
+
+.projects-tabs .projects-tab-btn{
+	border-radius: 999px;
+	padding: 0.5rem 1rem;
+	font-weight: 600;
+}
+
+.projects-grid{
+	/* Use CSS Grid so we can force 4 cards per row on wide screens */
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+	align-items: stretch;
+}
+
+/* Responsive breakpoints: 3 cols on medium, 2 on small, 1 on extra-small */
+@media (max-width: 1199px){
+	.projects-grid{
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 991px){
+	.projects-grid{
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 575px){
+	.projects-grid{
+		grid-template-columns: 1fr;
+	}
+}
+
+.projects-grid .projects-card{
+	border-radius: var(--card-radius);
+	/* fixed total card height (includes image + body) so all cards match */
+	height: 420px;
+	overflow: hidden;
+	transition: transform .2s ease, box-shadow .2s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.projects-grid .projects-card:hover{
+	transform: translateY(-6px);
+	box-shadow: 0 12px 30px rgba(13,110,253,0.12);
+}
+
+.projects-card .card-body{
+	display: flex;
+	flex-direction: column;
+	/* allow body to grow and fill remaining card height */
+	flex: 1 1 auto;
+	height: auto;
+	padding: 1rem;
+}
+
+.project-title{
+	font-size: 1.05rem;
+	font-weight: 700;
+	margin: 0;
+}
+
+.project-desc{
+	color: var(--muted);
+	margin-top: .5rem;
+	margin-bottom: .75rem;
+	line-height: 1.3;
+	/* keep consistent height by limiting lines */
+	display: -webkit-box;
+		-webkit-line-clamp: 4;
+		line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.actions .btn{
+	flex: 1 1 auto;
+}
+
+@media (max-width: 767px){
+	.projects-grid .projects-card{
+		min-height: 260px;
+	}
+}
+
+.projects-tabs{gap:8px}
+
+/* image area at top of project card (module-scoped and global fallbacks) */
+:local(.projectImgWrapper){
+	width: 100%;
+	height: 160px; /* fixed visual area */
+	overflow: hidden;
+	background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02));
+	/* center the image inside the wrapper */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* fixed slice so card body height is consistent */
+	flex: 0 0 160px;
+}
+
+:local(.projectImg){
+	/* allow the image to fill and be cropped from the center */
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+}
+
+/* global fallbacks (in case other code uses the hyphenated classes) */
+.project-img-wrapper{
+	width: 100%;
+	height: 160px;
+	overflow: hidden;
+	background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02));
+	flex: 0 0 160px;
+}
+
+.project-img{
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+}
+
+/* make sure the card's top corners are rounded even with the image (module-aware) */
+:local(.projectsCard) :local(.projectImgWrapper){
+	border-top-left-radius: var(--card-radius);
+	border-top-right-radius: var(--card-radius);
+}
+
+@media (max-width: 991px){
+	.projects-grid .projects-card{
+		height: 380px;
+	}
+	.project-img-wrapper{
+		height: 140px;
+		flex: 0 0 140px;
+	}
+}
+
+@media (max-width: 767px){
+	.projects-grid .projects-card{
+		height: 320px;
+	}
+	.project-img-wrapper{
+		height: 120px;
+		flex: 0 0 120px;
+	}
+}
+
+/* Dark / light variants so cards match the page background */
+/* Theme-aware variants: the app toggles a global .theme-dark class on <html>, so use :global() to target it from this CSS module. */
+
+/* Dark theme (when .theme-dark is present on the document root) */
+:global(.theme-dark) :local(.projectsCard){
+	/* use a subtle dark card background and light text */
+	background-color: rgba(255,255,255,0.02);
+	color: var(--title-color, #e9ecef);
+	border: 1px solid rgba(255,255,255,0.04);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+:global(.theme-dark) :local(.projectsCard) :local(.projectDesc){
+	color: rgba(233,236,239,0.8);
+}
+
+
+/* Ensure images/top corners still look correct in dark mode */
+:global(.theme-dark) :local(.projectsCard) :local(.projectImgWrapper){
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+/* Stronger overrides targeting the actual .card element and using :local() to ensure scoping.
+   This increases specificity so Bootstrap's .card background doesn't keep the cards white. */
+:global(.theme-dark) :local(.projectsCard).card,
+:global(.theme-dark) :local(.projectsCard).card .card-body {
+	/* subtle light tint on dark background */
+	background-color: rgba(255,255,255,0.03) !important;
+	color: var(--title-color, #e9eef8) !important;
+	border-color: rgba(255,255,255,0.06) !important;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.6) !important;
+}
+
+:global(.theme-dark) :local(.projectsCard).card :local(.projectDesc){
+	color: rgba(233,236,239,0.85) !important;
+}
+
+:global(.theme-dark) :local(.projectsCard).card :local(.projectImgWrapper){
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) !important;
+}
