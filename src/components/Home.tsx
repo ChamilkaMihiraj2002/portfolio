@@ -22,6 +22,9 @@ const Home: React.FC = () => {
 
         <h1 className="fw-bold">Hi, I'm <span className="text-primary">CHAMILKA MIHIRAJ PERERA</span></h1>
         <p className="lead">Software Engineer | Full-Stack Developer | Research Enthusiast | AI/ML Advocate</p>
+        <blockquote className="blockquote">
+          <p className="mb-0 fs-5 fst-italic text-muted">"Coding is beautiful when it writes on logically"</p>
+        </blockquote>
       </motion.div>
     </section>
   );
