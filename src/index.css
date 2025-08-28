@@ -1,0 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
+section {
+  padding: 80px 20px;
+}
