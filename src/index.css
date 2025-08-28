@@ -1,6 +1,28 @@
+:root{
+  --bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #0b5fff;
+  --danger: #dc2626;
+  --radius: 10px;
+  --wrapper-bg: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  --title-color: #0f172a;
+}
+
+/* dark theme variables applied when .theme-dark is present on <html> */
+.theme-dark{
+  --bg: #071028;
+  --muted: #9aa4b2;
+  --accent: #3b82f6;
+  --danger: #f87171;
+  --radius: 10px;
+  --wrapper-bg: linear-gradient(180deg, #071028 0%, #071028 100%);
+  --title-color: #e6eef8;
+}
+
 html {
   scroll-behavior: smooth;
 }
+
 section {
   padding: 80px 20px;
 }

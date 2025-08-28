@@ -1,5 +1,6 @@
 // src/components/Education.tsx
 import React, { useMemo } from "react";
+import "./Education.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaGraduationCap } from "react-icons/fa";
@@ -14,17 +15,24 @@ type EducationItem = {
 
 const educationData: EducationItem[] = [
   {
-    degree: "BSc. (Hons) in IT",
+    degree: "BSc. (Hons) in Information Technology and Management",
     school: "University of Moratuwa, Sri Lanka",
     year: "2023 – Present",
   logoUrl: "/education/university-of-moratuwa.svg",
   },
   {
-    degree: "High School Diploma",
-    school: "XYZ College",
+    degree: "GCE A/L - 3A's District 1st | GCE O/L - 6A's 2B's C",
+    school: "Sri Sangabodhi National College",
     year: "2018 – 2022",
   logoUrl: "/education/xyz-college.svg",
   },
+  {
+    degree: "Mathematics for Machine Learning and Data Science",
+    school: "DeepLearning.AI",
+    year: "2022",
+  logoUrl: "/education/xyz-college.svg",
+  },
+  
 ];
 
 const containerVariants = {
@@ -105,3 +113,6 @@ const Education: React.FC = () => {
 };
 
 export default Education;
+
+// Ensure this file is treated as a module under --isolatedModules
+export {};

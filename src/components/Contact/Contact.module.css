@@ -1,0 +1,98 @@
+.wrapper{
+  /* keep vertical spacing but remove forced horizontal page padding so the inner
+     container can control its own horizontal spacing (prevents extra side gaps)
+  */
+  padding:48px 0;
+  background:var(--wrapper-bg);
+}
+
+.container{
+  /* allow the card to be centered but stretch to available width on small
+     screens while keeping a little inner padding to avoid touching edges */
+  max-width:720px;
+  width: min(720px, calc(100% - 32px));
+  margin:0 auto;
+  padding:28px 16px;
+}
+
+.title{
+  margin:0 0 18px 0;
+  font-size:1.5rem;
+  text-align:center;
+  color:var(--title-color);
+}
+
+.form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.label{
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
+.input, .textarea{
+  padding:12px 14px;
+  border:1px solid #e6e9ee;
+  border-radius:8px;
+  font-size:1rem;
+  outline:none;
+  transition:box-shadow .15s ease, border-color .15s ease;
+}
+
+.input:focus, .textarea:focus{
+  box-shadow:0 4px 14px rgba(11,95,255,0.08);
+  border-color:var(--accent);
+}
+
+.textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.actions{
+  margin-top:6px;
+}
+
+.button{
+  background:var(--accent);
+  color:#fff;
+  border:0;
+  width:100%;
+  padding:12px 16px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .08s ease, box-shadow .12s ease;
+}
+
+.button:disabled{
+  opacity:0.6;
+  cursor:not-allowed;
+}
+
+.button:active{
+  transform:translateY(1px);
+}
+
+.error{
+  color:var(--danger);
+  font-size:0.85rem;
+}
+
+.invalid{
+  border-color:var(--danger) !important;
+}
+
+.status{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+@media (max-width:520px){
+  .container{padding:18px 12px}
+  .title{font-size:1.25rem}
+}

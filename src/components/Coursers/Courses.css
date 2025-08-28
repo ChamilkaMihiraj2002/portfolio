@@ -1,0 +1,72 @@
+/* Dark / light variants so cards match the page background */
+.bg-dark .projects-card{
+	background-color: rgba(255,255,255,0.02); /* subtle tint on dark bg */
+	color: #e9ecef;
+	border: 1px solid rgba(255,255,255,0.04);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+.bg-dark .projects-card .project-desc{
+	color: rgba(233,236,239,0.8);
+}
+
+.bg-light .projects-card{
+	background-color: #ffffff;
+	color: inherit;
+	border: 1px solid rgba(0,0,0,0.04);
+	box-shadow: 0 12px 30px rgba(13,110,253,0.12);
+}
+
+/* Make sure Bootstrap's `.text-muted` doesn't stay dark on dark backgrounds.
+   Bootstrap applies `!important` to .text-muted in some builds, so we use a
+   specific selector and `!important` to ensure correct contrast in dark mode. */
+.bg-dark .projects-card .text-muted {
+	color: rgba(233,236,239,0.68) !important;
+}
+
+/* Ensure subtitles and timestamps inherit the lighter color on dark backgrounds */
+.bg-dark .projects-card .card-subtitle,
+.bg-dark .projects-card time,
+.bg-dark .projects-card .card-text {
+	color: rgba(233,236,239,0.88);
+}
+
+/* Links inside cards on dark background */
+.bg-dark .projects-card a {
+	color: #9ad1ff;
+}
+.bg-dark .projects-card a:hover {
+	color: #cfefff;
+	text-decoration: underline;
+}
+
+/* Support theme applied via .theme-dark on <html> (the app toggles this class). */
+.theme-dark .projects-card{
+	background-color: rgba(255,255,255,0.02); /* subtle tint on dark bg */
+	color: #e9ecef;
+	border: 1px solid rgba(255,255,255,0.04);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+.theme-dark .projects-card .project-desc{
+	color: rgba(233,236,239,0.8);
+}
+
+.theme-dark .projects-card .text-muted {
+	color: rgba(233,236,239,0.68) !important;
+}
+
+.theme-dark .projects-card .card-subtitle,
+.theme-dark .projects-card time,
+.theme-dark .projects-card .card-text {
+	color: rgba(233,236,239,0.88);
+}
+
+.theme-dark .projects-card a {
+	color: #9ad1ff;
+}
+.theme-dark .projects-card a:hover {
+	color: #cfefff;
+	text-decoration: underline;
+}
+
