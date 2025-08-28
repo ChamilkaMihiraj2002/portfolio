@@ -20,8 +20,8 @@ const Home: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
         />
 
-        <h1 className="fw-bold">Hi, I'm <span className="text-primary">Your Name</span></h1>
-        <p className="lead">Software Engineer | Full-Stack Developer | Research Enthusiast</p>
+        <h1 className="fw-bold">Hi, I'm <span className="text-primary">CHAMILKA MIHIRAJ PERERA</span></h1>
+        <p className="lead">Software Engineer | Full-Stack Developer | Research Enthusiast | AI/ML Advocate</p>
       </motion.div>
     </section>
   );
