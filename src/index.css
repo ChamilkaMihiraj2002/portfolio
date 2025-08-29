@@ -26,3 +26,41 @@ html {
 section {
   padding: 80px 20px;
 }
+
+/* keep certain quotes or accents the same color in both light and dark themes */
+.quote-fixed {
+  color: var(--muted);
+}
+
+/* Social buttons: ensure good contrast in both light and dark themes */
+.social-btn {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border-width: 1px;
+  font-weight: 500;
+}
+
+/* Tweak Bootstrap outline button colors when in dark theme */
+.theme-dark .btn-outline-dark.social-btn {
+  color: #e6eef8;
+  border-color: rgba(230,238,248,0.12);
+  background-color: rgba(255,255,255,0.02);
+}
+
+.theme-dark .btn-outline-secondary.social-btn {
+  color: #d1d5db;
+  border-color: rgba(209,213,219,0.12);
+  background-color: rgba(255,255,255,0.02);
+}
+
+.theme-dark .btn-outline-info.social-btn {
+  color: #bfdbfe;
+  border-color: rgba(191,219,254,0.16);
+  background-color: rgba(255,255,255,0.02);
+}
+
+.theme-dark .btn-outline-primary.social-btn {
+  color: #c7e0ff;
+  border-color: rgba(199,224,255,0.16);
+  background-color: rgba(255,255,255,0.02);
+}
