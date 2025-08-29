@@ -1,6 +1,9 @@
 // src/components/Home.tsx
+import React from "react";
 import { motion } from "framer-motion";
-import logo from "../logo.svg";
+import logo from "../images/My images/me.jpeg";
+import { FaLinkedin, FaGithub, FaMedium } from "react-icons/fa";
+import { SiKaggle } from "react-icons/si";
 
 const Home: React.FC = () => {
   return (
@@ -23,8 +26,53 @@ const Home: React.FC = () => {
         <h1 className="fw-bold">Hi, I'm <span className="text-primary">CHAMILKA MIHIRAJ PERERA</span></h1>
         <p className="lead">Software Engineer | Full-Stack Developer | Research Enthusiast | AI/ML Advocate</p>
         <blockquote className="blockquote">
-          <p className="mb-0 fs-5 fst-italic text-muted">"Coding is beautiful when it writes on logically"</p>
+          <p className="mb-0 fs-5 fst-italic quote-fixed">"Coding is beautiful when it writes on logically"</p>
         </blockquote>
+        <div className="d-flex justify-content-center gap-2 mt-3">
+          <a
+            href="https://www.linkedin.com/in/YOUR_USERNAME"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="btn btn-outline-primary btn-sm social-btn"
+          >
+            {React.createElement(FaLinkedin as any, { style: { verticalAlign: "middle", marginRight: 6 } })}
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/YOUR_USERNAME"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="btn btn-outline-dark btn-sm social-btn"
+          >
+            {React.createElement(FaGithub as any, { style: { verticalAlign: "middle", marginRight: 6 } })}
+            GitHub
+          </a>
+
+          <a
+            href="https://www.kaggle.com/YOUR_USERNAME"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Kaggle"
+            className="btn btn-outline-info btn-sm social-btn"
+          >
+            {React.createElement(SiKaggle as any, { style: { verticalAlign: "middle", marginRight: 6 } })}
+            Kaggle
+          </a>
+
+          <a
+            href="https://medium.com/@YOUR_USERNAME"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Medium"
+            className="btn btn-outline-secondary btn-sm social-btn"
+          >
+            {React.createElement(FaMedium as any, { style: { verticalAlign: "middle", marginRight: 6 } })}
+            Medium
+          </a>
+        </div>
       </motion.div>
     </section>
   );
