@@ -5,6 +5,12 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaGraduationCap } from "react-icons/fa";
 
+import uomlog from "../../images/Education/uom.png";
+import ssclog from "../../images/Education/ssc.png";
+import vtalog from "../../images/Education/thurunushakthi.png";
+import hcmilog from "../../images/Education/hcmi.png";
+import ditlogo from "../../images/Education/dit.png";
+
 type EducationItem = {
   degree: string;
   school: string;
@@ -18,19 +24,37 @@ const educationData: EducationItem[] = [
     degree: "BSc. (Hons) in Information Technology and Management",
     school: "University of Moratuwa, Sri Lanka",
     year: "2023 – Present",
-  logoUrl: "/education/university-of-moratuwa.svg",
+  logoUrl: uomlog,
   },
   {
-    degree: "GCE A/L - 3A's District 1st | GCE O/L - 6A's 2B's C",
+    degree: "GCE A/L - 3A's District 1st",
     school: "Sri Sangabodhi National College",
-    year: "2018 – 2022",
-  logoUrl: "/education/xyz-college.svg",
+    year: "2021 – 2022",
+    logoUrl: ssclog,
   },
   {
-    degree: "Mathematics for Machine Learning and Data Science",
-    school: "DeepLearning.AI",
-    year: "2022",
-  logoUrl: "/education/xyz-college.svg",
+    degree: "Graphic Design",
+    school: "Thurunu shakthi (TSVTP)",
+    year: "2018 - 2019",
+  logoUrl: vtalog,
+  },
+  {
+    degree: "Human Resource Diploma",
+    school: "HCMI",
+    year: "2018",
+  logoUrl: hcmilog,
+  },
+  {
+    degree: "Information Technology Diploma",
+    school: "DIT",
+    year: "2018",
+  logoUrl: ditlogo,
+  },
+  {
+    degree: "GCE O/L - 3A's 2B's C",
+    school: "Sri Sangabodhi National College",
+    year: "2017 – 2018",
+    logoUrl: ssclog,
   },
   
 ];
