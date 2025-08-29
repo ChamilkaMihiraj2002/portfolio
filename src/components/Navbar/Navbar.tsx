@@ -11,7 +11,7 @@ const NavBar: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
   return (
     <Navbar expand="lg" fixed="top" className={darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"}>
       <Container>
-        <Navbar.Brand href="#home">MyPortfolio</Navbar.Brand>
+        <Navbar.Brand href="#home">CHAMILKA MIHIRAJ PERERA</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="ms-auto">
