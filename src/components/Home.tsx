@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         </blockquote>
         <div className="d-flex justify-content-center gap-2 mt-3">
           <a
-            href="https://www.linkedin.com/in/YOUR_USERNAME"
+            href="https://www.linkedin.com/in/chamilka-mihiraj-perera2002/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -41,7 +41,7 @@ const Home: React.FC = () => {
           </a>
 
           <a
-            href="https://github.com/YOUR_USERNAME"
+            href="https://github.com/ChamilkaMihiraj2002/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
           </a>
 
           <a
-            href="https://www.kaggle.com/YOUR_USERNAME"
+            href="https://www.kaggle.com/chamilkamihiraj"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Kaggle"
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
           </a>
 
           <a
-            href="https://medium.com/@YOUR_USERNAME"
+            href="https://medium.com/@chamilkaperera5"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Medium"
