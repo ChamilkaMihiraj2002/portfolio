@@ -1,6 +1,8 @@
 // src/components/TechStack.tsx
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
+import { FaCalendar } from "react-icons/fa";
 import './TechStack.css';
 
 const TechStack: React.FC = () => {
@@ -53,7 +55,14 @@ const TechStack: React.FC = () => {
   return (
     <section id="techstack" className="py-5 bg-secondary bg-opacity-10">
       <Container>
-        <h2 className="text-center mb-4 fw-bold">Tech Stack</h2>
+        <header className="d-flex align-items-center justify-content-between mb-4">
+          <h2 className="mb-4 fw-bold">Tech Stack</h2>
+          {React.createElement(FaCalendar as any, {
+                      'aria-hidden': true,
+                      size: 28,
+                      className: 'text-primary',
+          })}
+        </header>
 
         <div className="tech-grid">
           {skills.map((s, idx) => (
