@@ -1,204 +1,327 @@
-:root{
-	--accent: #0d6efd;
-	--muted: #6c757d;
-	--card-radius: 12px;
+/* Projects Section Styles */
+.projectsSection {
+  padding: 5rem 2rem;
 }
 
-.projects-tabs .projects-tab-btn{
-	border-radius: 999px;
-	padding: 0.5rem 1rem;
-	font-weight: 600;
+.projectsTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  font-size: 2.5rem;
 }
 
-.projects-grid{
-	/* Use CSS Grid so we can force 4 cards per row on wide screens */
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 1rem;
-	align-items: stretch;
+/* Tab Buttons */
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
-/* Responsive breakpoints: 3 cols on medium, 2 on small, 1 on extra-small */
-@media (max-width: 1199px){
-	.projects-grid{
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-	}
+.tabButton {
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border: 2px solid #0d6efd;
+  background: transparent;
+  color: #0d6efd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-@media (max-width: 991px){
-	.projects-grid{
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
+.tabButton:hover {
+  background: #0d6efd;
+  color: white;
 }
 
-@media (max-width: 575px){
-	.projects-grid{
-		grid-template-columns: 1fr;
-	}
+.tabButton.active {
+  background: #0d6efd;
+  color: white;
 }
 
-.projects-grid .projects-card{
-	border-radius: var(--card-radius);
-	/* fixed total card height (includes image + body) so all cards match */
-	height: 420px;
-	overflow: hidden;
-	transition: transform .2s ease, box-shadow .2s ease;
-	display: flex;
-	flex-direction: column;
+/* Projects Grid */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.projects-grid .projects-card:hover{
-	transform: translateY(-6px);
-	box-shadow: 0 12px 30px rgba(13,110,253,0.12);
+/* Large Desktop (1400px and up) - 4 cards per row */
+@media (min-width: 1400px) {
+  .projectsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+    gap: 2.5rem;
+  }
+  
+  .projectsSection {
+    padding: 6rem 2rem;
+  }
+  
+  .projectsTitle {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
 }
 
-.projects-card .card-body{
-	display: flex;
-	flex-direction: column;
-	/* allow body to grow and fill remaining card height */
-	flex: 1 1 auto;
-	height: auto;
-	padding: 1rem;
+/* Desktop (1200px - 1399px) - 4 cards per row */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .projectsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
 }
 
-.project-title{
-	font-size: 1.05rem;
-	font-weight: 700;
-	margin: 0;
+/* Large Tablet/Small Desktop (992px - 1199px) - 3 cards per row */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .projectsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .projectsSection {
+    padding: 4rem 1.5rem;
+  }
+  
+  .projectsTitle {
+    font-size: 2.25rem;
+  }
 }
 
-.project-desc{
-	color: var(--muted);
-	margin-top: .5rem;
-	margin-bottom: .75rem;
-	line-height: 1.3;
-	/* keep consistent height by limiting lines */
-	display: -webkit-box;
-		-webkit-line-clamp: 4;
-		line-clamp: 4;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+/* Tablet (768px - 991px) - 2 cards per row */
+@media (min-width: 768px) and (max-width: 991px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .projectsSection {
+    padding: 4rem 1.5rem;
+  }
+  
+  .projectsTitle {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .tabsContainer {
+    margin-bottom: 2.5rem;
+    gap: 0.75rem;
+  }
+  
+  .tabButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }
 
-.actions .btn{
-	flex: 1 1 auto;
+/* Small Tablet (576px - 767px) - 2 cards per row */
+@media (min-width: 576px) and (max-width: 767px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .projectsSection {
+    padding: 3rem 1rem;
+  }
+  
+  .projectsTitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tabsContainer {
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+  }
+  
+  .tabButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .projectImage {
+    height: 150px;
+  }
+  
+  .cardContent {
+    padding: 1rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.1rem;
+  }
 }
 
-@media (max-width: 767px){
-	.projects-grid .projects-card{
-		min-height: 260px;
-	}
+/* Mobile (up to 575px) - 1 card per row */
+@media (max-width: 575px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .projectsSection {
+    padding: 2.5rem 1rem;
+  }
+  
+  .projectsTitle {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tabsContainer {
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tabButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    min-width: 120px;
+  }
+  
+  .projectImage {
+    height: 180px;
+  }
+  
+  .cardContent {
+    padding: 1.25rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .techStack {
+    margin-bottom: 1rem;
+  }
+  
+  .techBadge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .actionButton {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
 
-.projects-tabs{gap:8px}
-
-/* image area at top of project card (module-scoped and global fallbacks) */
-:local(.projectImgWrapper){
-	width: 100%;
-	height: 160px; /* fixed visual area */
-	overflow: hidden;
-	background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02));
-	/* center the image inside the wrapper */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	/* fixed slice so card body height is consistent */
-	flex: 0 0 160px;
+/* Project Card */
+.projectCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-:local(.projectImg){
-	/* allow the image to fill and be cropped from the center */
-	width: 100%;
-	height: 100%;
-	min-width: 100%;
-	min-height: 100%;
-	object-fit: cover;
-	object-position: center;
-	display: block;
+.projectCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
 }
 
-/* global fallbacks (in case other code uses the hyphenated classes) */
-.project-img-wrapper{
-	width: 100%;
-	height: 160px;
-	overflow: hidden;
-	background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02));
-	flex: 0 0 160px;
+/* Project Image */
+.projectImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.project-img{
-	width: 100%;
-	height: 100%;
-	min-width: 100%;
-	min-height: 100%;
-	object-fit: cover;
-	object-position: center;
-	display: block;
+/* Card Content */
+.cardContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-/* make sure the card's top corners are rounded even with the image (module-aware) */
-:local(.projectsCard) :local(.projectImgWrapper){
-	border-top-left-radius: var(--card-radius);
-	border-top-right-radius: var(--card-radius);
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
-@media (max-width: 991px){
-	.projects-grid .projects-card{
-		height: 380px;
-	}
-	.project-img-wrapper{
-		height: 140px;
-		flex: 0 0 140px;
-	}
+/* Tech Stack Badges */
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-@media (max-width: 767px){
-	.projects-grid .projects-card{
-		height: 320px;
-	}
-	.project-img-wrapper{
-		height: 120px;
-		flex: 0 0 120px;
-	}
+.techBadge {
+  background: #e9ecef;
+  color: #0d6efd;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
-/* Dark / light variants so cards match the page background */
-/* Theme-aware variants: the app toggles a global .theme-dark class on <html>, so use :global() to target it from this CSS module. */
-
-/* Dark theme (when .theme-dark is present on the document root) */
-:global(.theme-dark) :local(.projectsCard){
-	/* use a subtle dark card background and light text */
-	background-color: rgba(255,255,255,0.02);
-	color: var(--title-color, #e9ecef);
-	border: 1px solid rgba(255,255,255,0.04);
-	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+/* Action Button */
+.actionButton {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin-top: auto;
 }
 
-:global(.theme-dark) :local(.projectsCard) :local(.projectDesc){
-	color: rgba(233,236,239,0.8);
+.actionButton:hover {
+  background: #0b5ed7;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
-
-/* Ensure images/top corners still look correct in dark mode */
-:global(.theme-dark) :local(.projectsCard) :local(.projectImgWrapper){
-	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+/* Dark Theme */
+:global(.theme-dark) .projectCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e9ecef;
 }
 
-/* Stronger overrides targeting the actual .card element and using :local() to ensure scoping.
-   This increases specificity so Bootstrap's .card background doesn't keep the cards white. */
-:global(.theme-dark) :local(.projectsCard).card,
-:global(.theme-dark) :local(.projectsCard).card .card-body {
-	/* subtle light tint on dark background */
-	background-color: rgba(255,255,255,0.03) !important;
-	color: var(--title-color, #e9eef8) !important;
-	border-color: rgba(255,255,255,0.06) !important;
-	box-shadow: 0 8px 24px rgba(0,0,0,0.6) !important;
+:global(.theme-dark) .projectTitle {
+  color: #e9ecef;
 }
 
-:global(.theme-dark) :local(.projectsCard).card :local(.projectDesc){
-	color: rgba(233,236,239,0.85) !important;
+:global(.theme-dark) .techBadge {
+  background: #23272f;
+  color: #90caf9;
 }
 
-:global(.theme-dark) :local(.projectsCard).card :local(.projectImgWrapper){
-	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) !important;
+:global(.theme-dark) .tabButton {
+  border-color: #90caf9;
+  color: #90caf9;
+}
+
+:global(.theme-dark) .tabButton:hover,
+:global(.theme-dark) .tabButton.active {
+  background: #90caf9;
+  color: #1a1a1a;
 }
