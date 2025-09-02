@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import "./Courses.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { FaGraduationCap } from "react-icons/fa";
+import { FaGraduationCap, FaLinkedin } from "react-icons/fa";
 
 import ibm from "../../images/Certifications/ibm.png";
 import dpl from "../../images/Certifications/dpl.png";
@@ -179,6 +179,7 @@ const Courses: React.FC = () => {
             rel="noopener noreferrer"
             aria-label="View more courses on LinkedIn"
           >
+            {React.createElement(FaLinkedin as any, { style: { verticalAlign: "middle", marginRight: 6, fontSize: 24 } })}
             View more on LinkedIn
           </a>
         </div>
