@@ -17,7 +17,7 @@ const Home: React.FC = () => {
           src={logo}
           alt="Profile"
           className="rounded-circle img-fluid mb-3"
-          style={{ width: 160, height: 160, objectFit: "cover" }}
+          style={{ width: 300, height: 300, objectFit: "cover" }}
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
