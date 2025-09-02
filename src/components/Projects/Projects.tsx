@@ -1,26 +1,27 @@
-// src/components/Projects.tsx
+import React from "react";
 import { useState } from "react";
-import { Container, Row, Col, Card, Button, ButtonGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
 import styles from "./Projects.module.css";
 
-type Category = "fullstack" | "desktop";
+type Category = "fullstack" | "desktop" | "iot";
 
-type Project = {
+interface Project {
   title: string;
-  description: string;
+  techstack: string[];
   github: string;
-  demo: string;
+  demo: string; 
   category: Category;
-  image?: string; // optional image url (public/ path ok)
-};
+  image?: string;
+}
 
 const Projects: React.FC = () => {
-  // projects with categories
+  const GITHUB_URL = "https://www.github.com/ChamilkaMihiraj2002";
   const projects: Project[] = [
     {
-      title: "EmpSync - ",
-      description: "A full-stack web app with React, Next.js, and PostgreSQL to Organization management.",
+      title: "EmpSync - Employee Management System",
+      techstack: ["React", "Next.js", "PostgreSQL","PrismaORM", "Auth0","Firebase"],
       github: "https://github.com/ChamilkaMihiraj2002/EmpSync-V2",
       demo: "#",
       category: "fullstack",
@@ -28,7 +29,7 @@ const Projects: React.FC = () => {
     },
     {
       title: "Pharmacy Queue Management System",
-      description: "A full-stack web app with React, Express.js, Node.js, and MongoDB to manage pharmacy queues.",
+      techstack: ["React", "Express.js", "Node.js", "MongoDB"],
       github: "https://github.com/ChamilkaMihiraj2002/Pharmacy-Queue-Management-System",
       demo: "#",
       category: "fullstack",
@@ -36,124 +37,140 @@ const Projects: React.FC = () => {
     },
     {
       title: "Online Medical Appointment System",
-      description: "A full-stack web app with React, Axios, Bootstrap, Laravel, Laravel Sanctum and MySQL to manage Medical Appointments.",
+      techstack: ["React", "Axios", "Bootstrap", "Laravel", "Laravel Sanctum", "MySQL"],
       github: "https://github.com/ChamilkaMihiraj2002/Health-app",
       demo: "#",
       category: "fullstack",
       image: "/logo192.png",
     },
     {
-      title: "Text to speech application",
-      description: "A desktop app with python, TKinter, pyttsx3, and PIL (Pillow) create a text-to-speech application.",
-      github: "https://github.com/ChamilkaMihiraj2002/Text-to-Speech-Application",
-      demo: "#",
-      category: "desktop",
-      image: "/logo192.png",
-    },
-    {
-      title: "TutorLK",
-      description: "A full-stack web app with React, Express.js, Node.js, and MongoDB to manage TutorLK.",
+      title: "TutorLK - Online Tutoring Platform",
+      techstack: ["React", "Express.js", "Node.js", "MongoDB"],
       github: "https://github.com/ChamilkaMihiraj2002/TutorLK",
       demo: "#",
       category: "fullstack",
       image: "/logo192.png",
     },
     {
+      title: "Text to Speech Application",
+      techstack: ["Python", "TKinter", "pyttsx3", "Pillow"],
+      github: "https://github.com/ChamilkaMihiraj2002/Text-to-Speech-Application",
+      demo: "#",
+      category: "desktop",
+      image: "/logo192.png",
+    },
+    {
       title: "AI ChatBot with Python",
-      description: "A desktop app with Python, NLTK, and TensorFlow to create an AI-powered chatbot.",
+      techstack: ["Python", "NLTK", "TensorFlow"],
       github: "https://github.com/ChamilkaMihiraj2002/Python-Chatboat",
       demo: "#",
       category: "desktop",
       image: "/logo192.png",
     },
     {
-      title: "Expense Tracker",
-      description: "A full-stack web app with React, Next.js, and PostgreSQL to manage meal tokens with HR integration.",
-      github: "https://github.com/yourusername/expense-tracker",
+      title: "Finance Paysheet Emailer",
+      techstack: ["Python", "SQLIte", "smtplib", "pytest", "Modern TKinter"],
+      github: "#",
       demo: "#",
-      category: "fullstack",
+      category: "desktop",
       image: "/logo192.png",
     },
     {
-      title: "Expense Tracker",
-      description: "A full-stack web app with React, Next.js, and PostgreSQL to manage meal tokens with HR integration.",
-      github: "https://github.com/yourusername/expense-tracker",
+      title: "Automatic Bottle Filling and Capping Machine",
+      techstack: ["Arduino", "C", "C++", "Git", "GitHub"],
+      github: "https://github.com/ChamilkaMihiraj2002/Automatic-bottle-filling-and-capping-machine",
       demo: "#",
-      category: "fullstack",
+      category: "iot",
       image: "/logo192.png",
     },
   ];
 
-  const [selected, setSelected] = useState<Category>("fullstack");
+  const [selectedCategory, setSelectedCategory] = useState<Category>("fullstack");
 
-  const filtered = projects.filter((p) => p.category === selected);
+  const filteredProjects = projects.filter((project) => project.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-5">
+    <section id="projects" className={styles.projectsSection}>
       <Container>
-        <h2 className="text-center mb-4 fw-bold">Projects</h2>
-
-  <div className={`d-flex justify-content-center mb-4 ${styles.projectsTabs}`}>
-          <ButtonGroup aria-label="project categories">
-            <Button
-              className="projects-tab-btn"
-              variant={selected === "fullstack" ? "primary" : "outline-primary"}
-              onClick={() => setSelected("fullstack")}
-              aria-pressed={selected === "fullstack"}
-            >
-              <span className="me-2" role="img" aria-label="fullstack">🌐</span> Fullstack
-            </Button>
-            <Button
-              className="projects-tab-btn"
-              variant={selected === "desktop" ? "primary" : "outline-primary"}
-              onClick={() => setSelected("desktop")}
-              aria-pressed={selected === "desktop"}
-            >
-              <span className="me-2" role="img" aria-label="desktop">🖥️</span> Desktop
-            </Button>
-          </ButtonGroup>
+        <h2 className={styles.projectsTitle}>My Projects</h2>
+        
+        {/* Category Tabs */}
+        <div className={styles.tabsContainer}>
+          <button
+            className={`${styles.tabButton} ${selectedCategory === "fullstack" ? styles.active : ""}`}
+            onClick={() => setSelectedCategory("fullstack")}
+          >
+            🌐 Fullstack Projects
+          </button>
+          <button
+            className={`${styles.tabButton} ${selectedCategory === "desktop" ? styles.active : ""}`}
+            onClick={() => setSelectedCategory("desktop")}
+          >
+            🖥️ Desktop Applications
+          </button>
+          <button
+            className={`${styles.tabButton} ${selectedCategory === "iot" ? styles.active : ""}`}
+            onClick={() => setSelectedCategory("iot")}
+          >
+            🌐 IoT Projects
+          </button>
         </div>
 
-        <Row className={styles.projectsGrid}>
-          {filtered.map((proj, idx) => (
-            <Col key={idx} xs={12} sm={6} md={6} lg={3} className="mb-4">
-              <motion.div whileHover={{ scale: 1.02 }}>
-                {/* modern card: image at top, uniform height, actions pinned to bottom */}
-                <Card className={`h-100 shadow-sm ${styles.projectsCard}`}>
-                  {/* image wrapper - keeps consistent aspect and crops */}
-                  <div className={styles.projectImgWrapper}>
-                    <img
-                      src={proj.image || "/logo192.png"}
-                      alt={`${proj.title} screenshot`}
-                      className={styles.projectImg}
-                    />
+        {/* Projects Grid */}
+        <div className={styles.projectsGrid}>
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className={styles.projectCard}>
+                <img
+                  src={project.image || "/logo192.png"}
+                  alt={`${project.title} preview`}
+                  className={styles.projectImage}
+                />
+                
+                <div className={styles.cardContent}>
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  
+                  <div className={styles.techStack}>
+                    {project.techstack.map((tech, techIndex) => (
+                      <span key={techIndex} className={styles.techBadge}>
+                        {tech}
+                      </span>
+                    ))}
                   </div>
-
-                  <Card.Body className="d-flex flex-column">
-                    <div className="d-flex align-items-start mb-2">
-                      <Card.Title className={styles.projectTitle}>{proj.title}</Card.Title>
-                    </div>
-
-                    <Card.Text className={styles.projectDesc}>{proj.description}</Card.Text>
-
-                    <div className="mt-auto d-flex gap-2 actions">
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        href={proj.demo}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`d-flex align-items-center ${styles.actions ?? ""}`}
-                      >
-                        <span className="me-2" role="img" aria-label="demo">🔗</span> Goto repository
-                      </Button>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
+                  
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.actionButton}
+                  >
+                    <span>🔗</span>
+                    View Repository
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </Row>
+        </div>
+
+        <div className="d-flex justify-content-center">
+          <a
+            href={GITHUB_URL}
+            className="btn btn-outline-primary mt-4"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View more courses on LinkedIn"
+          >
+            {React.createElement(FaGithub as any, { style: { verticalAlign: "middle", marginRight: 6, fontSize: 24 } })}
+            View more on Github
+          </a>
+        </div>
       </Container>
     </section>
   );
