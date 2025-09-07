@@ -1,9 +1,16 @@
+
 import React from "react";
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import styles from "./Projects.module.css";
+import chatbot from "../../images/projects/chatbot.jpg";
+import iot from "../../images/projects/iot.jpg";
+import mediapp from "../../images/projects/mediapp.jpg";
+import pharma from "../../images/projects/pharmacy-DPhCWBRG.jpg";
+import superadmin from "../../images/projects/superadmin.jpg";
+import t2s from "../../images/projects/t2s.jpg";
 
 type Category = "fullstack" | "desktop" | "iot";
 
@@ -25,7 +32,7 @@ const Projects: React.FC = () => {
       github: "https://github.com/ChamilkaMihiraj2002/EmpSync-V2",
       demo: "#",
       category: "fullstack",
-      image: "/logo192.png",
+      image: superadmin,
     },
     {
       title: "Pharmacy Queue Management System",
@@ -33,7 +40,7 @@ const Projects: React.FC = () => {
       github: "https://github.com/ChamilkaMihiraj2002/Pharmacy-Queue-Management-System",
       demo: "#",
       category: "fullstack",
-      image: "/logo192.png",
+      image: pharma,
     },
     {
       title: "Online Medical Appointment System",
@@ -41,7 +48,7 @@ const Projects: React.FC = () => {
       github: "https://github.com/ChamilkaMihiraj2002/Health-app",
       demo: "#",
       category: "fullstack",
-      image: "/logo192.png",
+      image: mediapp,
     },
     {
       title: "TutorLK - Online Tutoring Platform",
@@ -57,7 +64,7 @@ const Projects: React.FC = () => {
       github: "https://github.com/ChamilkaMihiraj2002/Text-to-Speech-Application",
       demo: "#",
       category: "desktop",
-      image: "/logo192.png",
+      image: t2s,
     },
     {
       title: "AI ChatBot with Python",
@@ -65,7 +72,7 @@ const Projects: React.FC = () => {
       github: "https://github.com/ChamilkaMihiraj2002/Python-Chatboat",
       demo: "#",
       category: "desktop",
-      image: "/logo192.png",
+      image: chatbot,
     },
     {
       title: "Finance Paysheet Emailer",
@@ -81,13 +88,29 @@ const Projects: React.FC = () => {
       github: "https://github.com/ChamilkaMihiraj2002/Automatic-bottle-filling-and-capping-machine",
       demo: "#",
       category: "iot",
-      image: "/logo192.png",
+      image: iot,
     },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState<Category>("fullstack");
+  const [currentPage, setCurrentPage] = useState(1);
+  const PROJECTS_PER_PAGE = 4;
 
+  // Filter projects by category
   const filteredProjects = projects.filter((project) => project.category === selectedCategory);
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
+  const paginatedProjects = filteredProjects.slice(
+    (currentPage - 1) * PROJECTS_PER_PAGE,
+    currentPage * PROJECTS_PER_PAGE
+  );
+
+  // Handle category change: reset to page 1
+  const handleCategoryChange = (category: Category) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  };
 
   return (
     <section id="projects" className={styles.projectsSection}>
@@ -98,19 +121,19 @@ const Projects: React.FC = () => {
         <div className={styles.tabsContainer}>
           <button
             className={`${styles.tabButton} ${selectedCategory === "fullstack" ? styles.active : ""}`}
-            onClick={() => setSelectedCategory("fullstack")}
+            onClick={() => handleCategoryChange("fullstack")}
           >
             🌐 Fullstack Projects
           </button>
           <button
             className={`${styles.tabButton} ${selectedCategory === "desktop" ? styles.active : ""}`}
-            onClick={() => setSelectedCategory("desktop")}
+            onClick={() => handleCategoryChange("desktop")}
           >
             🖥️ Desktop Applications
           </button>
           <button
             className={`${styles.tabButton} ${selectedCategory === "iot" ? styles.active : ""}`}
-            onClick={() => setSelectedCategory("iot")}
+            onClick={() => handleCategoryChange("iot")}
           >
             🌐 IoT Projects
           </button>
@@ -118,9 +141,9 @@ const Projects: React.FC = () => {
 
         {/* Projects Grid */}
         <div className={styles.projectsGrid}>
-          {filteredProjects.map((project, index) => (
+          {paginatedProjects.map((project, index) => (
             <motion.div
-              key={index}
+              key={index + (currentPage - 1) * PROJECTS_PER_PAGE}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -132,10 +155,8 @@ const Projects: React.FC = () => {
                   alt={`${project.title} preview`}
                   className={styles.projectImage}
                 />
-                
                 <div className={styles.cardContent}>
                   <h3 className={styles.projectTitle}>{project.title}</h3>
-                  
                   <div className={styles.techStack}>
                     {project.techstack.map((tech, techIndex) => (
                       <span key={techIndex} className={styles.techBadge}>
@@ -143,7 +164,6 @@ const Projects: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  
                   <a
                     href={project.github}
                     target="_blank"
@@ -158,6 +178,38 @@ const Projects: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div style={{ display: "flex", justifyContent: "center", margin: "2rem 0" }}>
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              style={{ marginRight: 8 }}
+              className={styles.tabButton}
+            >
+              Previous
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i + 1}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`${styles.tabButton} ${currentPage === i + 1 ? styles.active : ""}`}
+                style={{ margin: "0 2px" }}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              style={{ marginLeft: 8 }}
+              className={styles.tabButton}
+            >
+              Next
+            </button>
+          </div>
+        )}
 
         <div className="d-flex justify-content-center">
           <a
