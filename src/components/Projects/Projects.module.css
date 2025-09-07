@@ -148,7 +148,9 @@
   }
   
   .projectImage {
-    height: 150px;
+    aspect-ratio: 16/9;
+    height: auto;
+    max-height: 100px;
   }
   
   .cardContent {
@@ -190,7 +192,9 @@
   }
   
   .projectImage {
-    height: 180px;
+    aspect-ratio: 16/9;
+    height: auto;
+    max-height: 180px;
   }
   
   .cardContent {
@@ -238,9 +242,12 @@
 /* Project Image */
 .projectImage {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16/9;
+  height: auto;
+  max-height: 220px;
   object-fit: cover;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: block;
 }
 
 /* Card Content */
