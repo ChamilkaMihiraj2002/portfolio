@@ -4,6 +4,7 @@
 	color: #e9ecef;
 	border: 1px solid rgba(255,255,255,0.04);
 	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+	transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s cubic-bezier(0.4,0,0.2,1);
 }
 
 .bg-dark .projects-card .project-desc{
@@ -15,6 +16,12 @@
 	color: inherit;
 	border: 1px solid rgba(0,0,0,0.04);
 	box-shadow: 0 12px 30px rgba(13,110,253,0.12);
+	transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.projects-card:hover {
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 16px 40px rgba(13,110,253,0.18), 0 8px 24px rgba(0,0,0,0.10);
 }
 
 /* Make sure Bootstrap's `.text-muted` doesn't stay dark on dark backgrounds.
@@ -46,6 +53,7 @@
 	color: #e9ecef;
 	border: 1px solid rgba(255,255,255,0.04);
 	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+	transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s cubic-bezier(0.4,0,0.2,1);
 }
 
 .theme-dark .projects-card .project-desc{

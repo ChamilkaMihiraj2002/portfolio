@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import logo from "../images/My images/me.jpeg";
-import { FaLinkedin, FaGithub, FaMedium } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaMedium, FaDownload } from "react-icons/fa";
 import { SiKaggle } from "react-icons/si";
 
 const Home: React.FC = () => {
@@ -71,6 +71,17 @@ const Home: React.FC = () => {
           >
             {React.createElement(FaMedium as any, { style: { verticalAlign: "middle", marginRight: 6 } })}
             Medium
+          </a>
+          <a
+            href="/cv.pdf"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download CV"
+            className="btn btn-outline-success btn-sm social-btn"
+          >
+            {React.createElement(FaDownload as any, { style: { verticalAlign: "middle", marginRight: 6 } })}
+            Download CV
           </a>
         </div>
       </motion.div>

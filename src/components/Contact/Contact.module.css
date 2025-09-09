@@ -1,3 +1,82 @@
+.cvDownloadWrapper {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cvDownloadButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, filter 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+  cursor: pointer;
+  width: auto;
+  margin: 0;
+}
+
+.cvDownloadButton:hover {
+  background: var(--accent);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 12px rgba(59,130,246,0.15);
+}
+
+.theme-dark .cvDownloadButton {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.15);
+}
+
+.theme-dark .cvDownloadButton:hover {
+  background: var(--accent);
+  filter: brightness(1.15);
+  box-shadow: 0 4px 12px rgba(59,130,246,0.25);
+}
+/* CV Download Button Styles */
+.cvDownloadButton {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 6px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, filter 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+  cursor: pointer;
+}
+
+.cvDownloadButton:hover {
+  background: var(--accent);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 12px rgba(59,130,246,0.15);
+}
+
+.theme-dark .cvDownloadButton {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.15);
+}
+
+.theme-dark .cvDownloadButton:hover {
+  background: var(--accent);
+  filter: brightness(1.15);
+  box-shadow: 0 4px 12px rgba(59,130,246,0.25);
+}
 .wrapper{
   /* keep vertical spacing but remove forced horizontal page padding so the inner
      container can control its own horizontal spacing (prevents extra side gaps)

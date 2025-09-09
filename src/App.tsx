@@ -10,6 +10,7 @@ import TechStack from "./components/TechStak/TechStack";
 import Publications from "./components/Publications/Publications";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import Volunteering from "./components/Volunteering/Volunteering";
 
 function App() {
   const THEME_KEY = 'site-theme';
@@ -87,6 +88,7 @@ function App() {
       <Home />
       <Projects />
       <Education />
+      <Volunteering />
       <Courses />
       <TechStack />
       <Publications />

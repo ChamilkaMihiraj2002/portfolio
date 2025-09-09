@@ -97,7 +97,6 @@ const Contact: React.FC = () => {
           {/* Right Column - Contact Information */}
           <div className={styles.contactInfo}>
             <h3 className={styles.contactInfoTitle}>Get In Touch</h3>
-            
             <div className={styles.contactItem}>
               <svg className={styles.contactIcon} fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -124,8 +123,26 @@ const Contact: React.FC = () => {
               </svg>
               <div className={styles.contactDetails}>
                 <h4>Email</h4>
-                <p><a href="mailto:your.email@example.com">chamilka2002@gmail.com</a></p>
+                <p><a href="mailto:chamilka2002@gmail.com">chamilka2002@gmail.com</a></p>
               </div>
+            </div>
+
+            {/* CV Download Button */}
+            <div className={styles.cvDownloadWrapper}>
+              <a
+                href="/cv.pdf"
+                download
+                className={styles.cvDownloadButton}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download CV as PDF"
+              >
+                <svg style={{marginRight: '8px'}} width="20" height="20" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9 2a1 1 0 0 1 2 0v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 1 1 6.293 8.293L8.5 10.586V2z"/>
+                  <path d="M3 16a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/>
+                </svg>
+                Download CV
+              </a>
             </div>
           </div>
 
