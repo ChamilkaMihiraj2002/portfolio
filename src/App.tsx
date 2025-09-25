@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 import NavBar from "./components/Navbar/Navbar";
+import Snowfall from "./components/Effects/Snowfall";
 import Home from "./components/Home";
 import Projects from "./components/Projects/Projects";
 import Education from "./components/Education/Education";
@@ -83,7 +84,9 @@ function App() {
   }, []);
 
   return (
-    <div className={darkMode ? "bg-dark text-light" : "bg-light text-dark"}>
+    <div className={darkMode ? "bg-dark text-light" : "bg-light text-dark"} style={{position:'relative', zIndex:1}}>
+      {/* Background animated snow (purely decorative) */}
+      <Snowfall />
       <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Home />
       <Projects />
