@@ -1,0 +1,41 @@
+/* Lightweight CSS snow animation. Each flake is a small blurred circle.
+   Uses CSS variables set inline for per-flake randomness. */
+.snow-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; /* allow clicks through */
+  z-index: 0; /* ensure behind main content; parent content should use >0 if needed */
+}
+
+/* base flake style */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  left: var(--flake-left);
+  width: var(--flake-size);
+  height: var(--flake-size);
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,var(--flake-opacity)) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  filter: blur(0.5px);
+  animation: fall var(--flake-duration) linear var(--flake-delay) infinite,
+             sway calc(var(--flake-duration) * 0.6) ease-in-out var(--flake-delay) infinite alternate;
+  will-change: transform; /* performance hint */
+}
+
+@keyframes fall {
+  0% { transform: translate3d(0, -5%, 0); }
+  100% { transform: translate3d(var(--flake-drift), 105vh, 0); }
+}
+
+@keyframes sway {
+  0% { margin-left: -10px; }
+  100% { margin-left: 10px; }
+}
+
+/* Respect user preference to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .snowflake { animation: none; opacity: 0.4; }
+}
