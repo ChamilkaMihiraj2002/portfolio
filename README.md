@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Snowfall Background Effect
+
+A lightweight decorative snowfall animation has been added (`src/components/Effects/Snowfall.tsx`).
+
+- It renders absolutely positioned, pointer-events-disabled flakes behind the main content.
+- To remove it, delete the `<Snowfall />` element in `src/App.tsx` (near the top of the returned JSX) or pass `active={false}`.
+- Motion-sensitive users are respected through `prefers-reduced-motion` (animation stops automatically).
