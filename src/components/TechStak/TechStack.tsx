@@ -46,7 +46,7 @@ const TechStack: React.FC = () => {
 
     // Tools & Design
     { name: 'Figma', icon: 'https://skillicons.dev/icons?i=figma' },
-    { name: 'Blender', icon: 'https://skillicons.dev/icons?i=blender' },
+    // { name: 'Blender', icon: 'https://skillicons.dev/icons?i=blender' },
     { name: 'Arduino', icon: 'https://skillicons.dev/icons?i=arduino' },
   ];
 
