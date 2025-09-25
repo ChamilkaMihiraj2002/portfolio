@@ -11,6 +11,8 @@ import mediapp from "../../images/projects/mediapp.jpg";
 import pharma from "../../images/projects/pharmacy-DPhCWBRG.jpg";
 import superadmin from "../../images/projects/superadmin.jpg";
 import t2s from "../../images/projects/t2s.jpg";
+import edulk from "../../images/projects/edulk.png";
+import emailler from "../../images/projects/logo.png";
 
 type Category = "fullstack" | "desktop" | "iot";
 
@@ -51,12 +53,12 @@ const Projects: React.FC = () => {
       image: mediapp,
     },
     {
-      title: "TutorLK - Online Tutoring Platform",
+      title: "EduLanka - Online Tutoring Platform",
       techstack: ["React", "Express.js", "Node.js", "MongoDB"],
       github: "https://github.com/ChamilkaMihiraj2002/TutorLK",
       demo: "#",
       category: "fullstack",
-      image: "/logo192.png",
+      image: edulk,
     },
     {
       title: "Text to Speech Application",
@@ -80,7 +82,7 @@ const Projects: React.FC = () => {
       github: "#",
       demo: "#",
       category: "desktop",
-      image: "/logo192.png",
+      image: emailler,
     },
     {
       title: "Automatic Bottle Filling and Capping Machine",
