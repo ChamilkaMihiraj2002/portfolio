@@ -21,7 +21,6 @@ const TechStack: React.FC = () => {
     { name: 'Express', icon: 'https://skillicons.dev/icons?i=express' },
     { name: 'Node.js', icon: 'https://skillicons.dev/icons?i=nodejs' },
     { name: 'NestJS', icon: 'https://skillicons.dev/icons?i=nest' },
-    { name: 'Django', icon: 'https://skillicons.dev/icons?i=django' },
     { name: 'Laravel', icon: 'https://skillicons.dev/icons?i=laravel' },
     { name: 'FastAPI', icon: 'https://skillicons.dev/icons?i=fastapi' },
 
@@ -39,8 +38,8 @@ const TechStack: React.FC = () => {
     { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb' },
 
     // Cloud & DevOps
-    { name: 'AWS', icon: 'https://skillicons.dev/icons?i=aws' },
-    { name: 'Azure', icon: 'https://skillicons.dev/icons?i=azure' },
+    // { name: 'AWS', icon: 'https://skillicons.dev/icons?i=aws' },
+    // { name: 'Azure', icon: 'https://skillicons.dev/icons?i=azure' },
     { name: 'Docker', icon: 'https://skillicons.dev/icons?i=docker' },
     { name: 'Linux', icon: 'https://skillicons.dev/icons?i=linux' },
     { name: 'Postman', icon: 'https://skillicons.dev/icons?i=postman' },
@@ -49,7 +48,6 @@ const TechStack: React.FC = () => {
     { name: 'Figma', icon: 'https://skillicons.dev/icons?i=figma' },
     { name: 'Blender', icon: 'https://skillicons.dev/icons?i=blender' },
     { name: 'Arduino', icon: 'https://skillicons.dev/icons?i=arduino' },
-    { name: 'Grafana', icon: 'https://skillicons.dev/icons?i=grafana' },
   ];
 
   return (
