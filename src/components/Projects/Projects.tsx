@@ -13,8 +13,9 @@ import superadmin from "../../images/projects/superadmin.jpg";
 import t2s from "../../images/projects/t2s.jpg";
 import edulk from "../../images/projects/edulk.png";
 import emailler from "../../images/projects/logo.png";
+import localRAG from "../../images/projects/loaclRAG.jpg";
 
-type Category = "fullstack" | "desktop" | "iot";
+type Category = "fullstack" | "desktop" | "iot" | "aiml";
 
 interface Project {
   title: string;
@@ -73,7 +74,7 @@ const Projects: React.FC = () => {
       techstack: ["Python", "NLTK", "TensorFlow"],
       github: "https://github.com/ChamilkaMihiraj2002/Python-Chatboat",
       demo: "#",
-      category: "desktop",
+      category: "aiml",
       image: chatbot,
     },
     {
@@ -83,6 +84,22 @@ const Projects: React.FC = () => {
       demo: "#",
       category: "desktop",
       image: emailler,
+    },
+    {
+      title: "AI Web Scraper (LangChain, Ollama, Selenium)",
+      techstack: ["Python", "LangChain", "Ollama", "Selenium", "Llama 3.2", "Vector Embeddings"],
+      github: "https://github.com/ChamilkaMihiraj2002/ai-scraper",
+      demo: "#",
+      category: "aiml",
+      image: localRAG,
+    },
+    {
+      title: "Local AI Agent with Python, Ollama, LangChain & RAG",
+      techstack: ["Python", "Streamlit", "LangChain", "ChromaDB", "Ollama", "Llama 3.2", "Vector Embeddings"],
+      github: "https://github.com/ChamilkaMihiraj2002/Local-AI-Agent-With-Python-Ollama-LangChain-RAG-",
+      demo: "#",
+      category: "aiml",
+      image: localRAG,
     },
     {
       title: "Automatic Bottle Filling and Capping Machine",
@@ -132,6 +149,12 @@ const Projects: React.FC = () => {
             onClick={() => handleCategoryChange("desktop")}
           >
             🖥️ Desktop Applications
+          </button>
+          <button
+            className={`${styles.tabButton} ${selectedCategory === "aiml" ? styles.active : ""}`}
+            onClick={() => handleCategoryChange("aiml")}
+          >
+            🤖 AI / ML
           </button>
           <button
             className={`${styles.tabButton} ${selectedCategory === "iot" ? styles.active : ""}`}
