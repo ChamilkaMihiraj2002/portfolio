@@ -79,7 +79,7 @@ const Volunteering: React.FC = () => (
             <Col key={item.organization + idx} xs={12} md={6} lg={4}>
               <motion.article variants={itemVariants} className="h-100">
                 <Card className={`h-100 shadow-sm border-0 ${projectStyles.projectCard}`}>
-                  <Card.Body>
+                  <Card.Body className={volunteeringStyles.cardBodyReset}>
                     <div className="d-flex align-items-center mb-2">
                       {item.logoUrl && (
                         <img
