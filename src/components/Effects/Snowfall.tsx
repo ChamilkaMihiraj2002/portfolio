@@ -22,9 +22,12 @@ interface SnowfallProps {
 
 const Snowfall: React.FC<SnowfallProps> = ({ count, maxSize = 6, active = true }) => {
   const flakes = useMemo(() => {
-    if (!active) return [] as Snowflake[];
+    // Respect reduced motion preference
+    const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!active || prefersReduced) return [] as Snowflake[];
     const width = typeof window !== 'undefined' ? window.innerWidth : 1200;
-    const target = count ?? (width < 640 ? 40 : width < 1024 ? 70 : 100);
+    // Reduce default flake count to lighten initial load
+    const target = count ?? (width < 640 ? 20 : width < 1024 ? 40 : 60);
     return Array.from({ length: target }, (_, i) => {
       const size = Math.random() * (maxSize - 1) + 1;
       return {
@@ -32,7 +35,8 @@ const Snowfall: React.FC<SnowfallProps> = ({ count, maxSize = 6, active = true }
         size: parseFloat(size.toFixed(2)),
         left: Math.random() * 100,
         delay: parseFloat((Math.random() * 10).toFixed(2)),
-        duration: parseFloat((12 + Math.random() * 12).toFixed(2)),
+        // Slightly shorter durations for fewer long-running animations
+        duration: parseFloat((10 + Math.random() * 10).toFixed(2)),
         opacity: parseFloat((0.3 + Math.random() * 0.7).toFixed(2)),
         drift: parseFloat((Math.random() * 40 - 20).toFixed(2)),
       } as Snowflake;
