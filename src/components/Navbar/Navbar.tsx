@@ -1,15 +1,13 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import React from "react";
-import { FiSun, FiMoon } from "react-icons/fi";
 
-interface NavBarProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-const NavBar: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
+const NavBar: React.FC = () => {
   return (
-    <Navbar expand="lg" fixed="top" className={darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"}>
+    <Navbar
+      expand="lg"
+      fixed="top"
+      className="nav-glass navbar-dark"
+    >
       <Container>
         <Navbar.Brand href="#home">CHAMILKA MIHIRAJ PERERA</Navbar.Brand>
         <Navbar.Toggle />
@@ -21,28 +19,6 @@ const NavBar: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
             <Nav.Link href="#techstack">Tech Stack</Nav.Link>
             <Nav.Link href="#publications">Publications</Nav.Link>
             <Nav.Link href="#contact">Contact</Nav.Link>
-            <Nav.Link
-              onClick={toggleDarkMode}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  toggleDarkMode();
-                }
-              }}
-              role="button"
-              tabIndex={0}
-              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-              title={darkMode ? "Light mode" : "Dark mode"}
-              style={{ cursor: "pointer" }}
-            >
-              {
-                // choose icon and render (cast to any to avoid react-icons TS typing mismatch)
-                (() => {
-                  const ModeIcon: any = darkMode ? FiSun : FiMoon;
-                  return <ModeIcon size={18} />;
-                })()
-              }
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
