@@ -1,14 +1,17 @@
 .volunteeringSection {
-  margin: 40px 0;
-  padding: 24px;
-  border-radius: 12px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .title {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 20px;
-  color: #2d3748;
+  color: var(--heading);
 }
 
 .volunteeringList {
@@ -23,60 +26,43 @@
 }
 
 .organization {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #3182ce;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--heading);
 }
 
 .role {
   display: block;
-  font-size: 1rem;
-  color: #4a5568;
+  font-size: 0.95rem;
+  color: var(--muted);
   margin-top: 2px;
 }
 
 .period {
   display: block;
   font-size: 0.95rem;
-  color: #718096;
+  color: var(--muted);
   margin-bottom: 6px;
 }
 
 .card-subtitle,
 .volunteeringPeriod {
-  color: #718096;
+  color: var(--muted);
   font-size: 0.95rem;
 }
 
 .description {
   font-size: 1rem;
-  color: #2d3748;
+  color: var(--text);
+}
+
+.cardBodyReset {
+  color: var(--text);
 }
 
 /* Dark Theme Support */
-:global(.theme-dark) .title {
-  color: #ffffff;
-}
-
-:global(.theme-dark) .volunteeringItem {
-  border-left: 4px solid #90caf9;
-}
-
-:global(.theme-dark) .organization {
-  color: #ffffff;
-}
-
-
-:global(.theme-dark) .role {
-  color: #b0b8c1;
-}
-
-:global(.theme-dark) .period,
-:global(.theme-dark) .card-subtitle,
-:global(.theme-dark) .volunteeringPeriod {
-  color: #b0b8c1;
-}
-
-:global(.theme-dark) .description {
-  color: #e9ecef;
+/* Ensure bootstrap Card text inherits themed colors */
+:global(.theme-dark) .card-body,
+:global(.theme-light) .card-body {
+  color: var(--text);
 }
