@@ -51,7 +51,7 @@ const educationData: EducationItem[] = [
   logoUrl: ditlogo,
   },
   {
-    degree: "GCE O/L - 3A's 2B's C",
+    degree: "GCE O/L - 6A's 2B's C",
     school: "Sri Sangabodhi National College",
     year: "2017 – 2018",
     logoUrl: ssclog,

@@ -35,7 +35,7 @@ const volunteeringData = [
   },
   {
     organization: "FIT Moments",
-    role: "Creative pillar designer ",
+    role: "Creative Pillar Head",
     period: "2023 - Present",
     description: "Designing creative content for social media and events.",
     logoUrl: fitm,
