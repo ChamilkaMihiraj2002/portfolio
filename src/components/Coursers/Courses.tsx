@@ -118,15 +118,20 @@ const Courses: React.FC = () => {
   return (
     <section id="education" className="py-5">
       <Container>
-        <header className="d-flex align-items-center justify-content-between mb-4">
-          <h2 className="mb-0 fw-bold">Certifications</h2>
-          {/* Render icon via createElement with any-cast to avoid TS2786 from react-icons types */}
-          {React.createElement(FaGraduationCap as any, {
-            'aria-hidden': true,
-            size: 28,
-            className: 'text-primary',
-          })}
-        </header>
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">CERTIFICATION_LOG</span>
+            <h2 className="section-title">Continuous learning in motion.</h2>
+            <p className="section-copy">
+              Specializations and focused certifications across machine learning, software engineering, and IoT.
+            </p>
+          </div>
+          <div className="section-icon">
+            {React.createElement(FaGraduationCap as any, {
+              "aria-hidden": true,
+            })}
+          </div>
+        </div>
 
         <motion.div
           variants={containerVariants}
@@ -174,7 +179,7 @@ const Courses: React.FC = () => {
         <div className="d-flex justify-content-center">
           <a
             href={LINKEDIN_COURSES_URL}
-            className="btn btn-outline-primary mt-4"
+            className="btn-ghost-neo mt-4"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View more courses on LinkedIn"

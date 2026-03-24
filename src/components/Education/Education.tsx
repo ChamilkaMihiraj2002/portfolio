@@ -79,15 +79,20 @@ const Education: React.FC = () => {
   return (
     <section id="education" className="py-5">
       <Container>
-        <header className="d-flex align-items-center justify-content-between mb-4">
-          <h2 className="mb-0 fw-bold">Education</h2>
-          {/* Render icon via createElement with any-cast to avoid TS2786 from react-icons types */}
-          {React.createElement(FaGraduationCap as any, {
-            'aria-hidden': true,
-            size: 28,
-            className: 'text-primary',
-          })}
-        </header>
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">LEARNING_PATH</span>
+            <h2 className="section-title">Education and academic milestones.</h2>
+            <p className="section-copy">
+              The foundation behind my engineering, research habits, and long-term AI focus.
+            </p>
+          </div>
+          <div className="section-icon">
+            {React.createElement(FaGraduationCap as any, {
+              "aria-hidden": true,
+            })}
+          </div>
+        </div>
 
         <motion.div
           variants={containerVariants}

@@ -1,6 +1,6 @@
-// src/components/Contact.tsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { FaEnvelopeOpenText } from "react-icons/fa";
 import styles from "./Contact.module.css";
 
 const FORM_ENDPOINT = process.env.REACT_APP_FORMSPREE_ENDPOINT || "";
@@ -14,9 +14,7 @@ type FormState = {
 const initialState: FormState = { name: "", email: "", message: "" };
 
 const validateEmail = (email: string) =>
-  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(".+"))@(([^<>()[\]\\.,;:\s@\"]+\.)+[^<>()[\]\\.,;:\s@\"]{2,})$/i.test(
-    email
-  );
+  /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email);
 
 const Contact: React.FC = () => {
   const [form, setForm] = useState<FormState>(initialState);
@@ -25,20 +23,21 @@ const Contact: React.FC = () => {
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const validate = (): boolean => {
-    const e: Partial<FormState> = {};
-    if (!form.name.trim()) e.name = "Please enter your name.";
-    if (!form.email.trim()) e.email = "Please enter your email.";
-    else if (!validateEmail(form.email)) e.email = "Please enter a valid email.";
-    if (!form.message.trim() || form.message.trim().length < 10)
-      e.message = "Message should be at least 10 characters.";
+    const nextErrors: Partial<FormState> = {};
+    if (!form.name.trim()) nextErrors.name = "Please enter your name.";
+    if (!form.email.trim()) nextErrors.email = "Please enter your email.";
+    else if (!validateEmail(form.email)) nextErrors.email = "Please enter a valid email.";
+    if (!form.message.trim() || form.message.trim().length < 10) {
+      nextErrors.message = "Message should be at least 10 characters.";
+    }
 
-    setErrors(e);
-    return Object.keys(e).length === 0;
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setForm((s) => ({ ...s, [name]: value }));
+    setForm((current) => ({ ...current, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
@@ -50,7 +49,6 @@ const Contact: React.FC = () => {
 
     try {
       if (FORM_ENDPOINT) {
-        // Formspree accepts FormData or JSON; we'll send FormData for widest support.
         const fd = new FormData();
         fd.append("name", form.name);
         fd.append("email", form.email);
@@ -63,16 +61,16 @@ const Contact: React.FC = () => {
         });
 
         if (!res.ok) throw new Error("Failed to send message");
-        setStatusMessage("Thanks — your message has been sent.");
+        setStatusMessage("Thanks, your message has been sent.");
         setForm(initialState);
       } else {
-        // No server endpoint configured: open mail client as fallback.
         const subject = encodeURIComponent(`Contact from ${form.name}`);
-        const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+        const body = encodeURIComponent(`${form.message}\n\n- ${form.name} (${form.email})`);
         window.location.href = `mailto:?subject=${subject}&body=${body}`;
-        setStatusMessage("Opened mail client as a fallback.");
+        setStatusMessage("Opened your mail client as a fallback.");
       }
-    } catch (err) {
+    } catch (error) {
+      void error;
       setStatusMessage("Something went wrong. Please try again later.");
     } finally {
       setSending(false);
@@ -82,21 +80,34 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className={styles.wrapper} aria-labelledby="contactHeading">
       <div className={styles.container}>
-        <h1 id="contactHeading" className={styles.title}>
-          Contact Me
-        </h1>
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">INITIATE_CONNECTION</span>
+            <h2 id="contactHeading" className="section-title">
+              Let&apos;s build something useful together.
+            </h2>
+            <p className="section-copy">
+              Open to internships, engineering roles, collaborations, and thoughtful AI product conversations.
+            </p>
+          </div>
+          <div className="section-icon">
+            {React.createElement(FaEnvelopeOpenText as any, { "aria-hidden": true })}
+          </div>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 12 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.6 }} 
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className={styles.content}
         >
-
-          {/* Right Column - Contact Information */}
           <div className={styles.contactInfo}>
             <h3 className={styles.contactInfoTitle}>Get In Touch</h3>
+            <p className={styles.introText}>
+              If you have a product idea, research collaboration, or internship opportunity in mind, send a message.
+            </p>
+
             <div className={styles.contactItem}>
               <svg className={styles.contactIcon} fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -113,7 +124,7 @@ const Contact: React.FC = () => {
               </svg>
               <div className={styles.contactDetails}>
                 <h4>Phone</h4>
-                <p><a href="tel:+1234567890">+94(77) 232 6005</a></p>
+                <p><a href="tel:+94772326005">+94 (77) 232 6005</a></p>
               </div>
             </div>
 
@@ -127,7 +138,6 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* CV Download Button */}
             <div className={styles.cvDownloadWrapper}>
               <a
                 href="/cv.pdf"
@@ -137,7 +147,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label="Download CV as PDF"
               >
-                <svg style={{marginRight: '8px'}} width="20" height="20" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <svg style={{ marginRight: "8px" }} width="20" height="20" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M9 2a1 1 0 0 1 2 0v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 1 1 6.293 8.293L8.5 10.586V2z"/>
                   <path d="M3 16a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/>
                 </svg>
@@ -146,7 +156,6 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Left Column - Contact Form */}
           <div>
             <form className={styles.form} onSubmit={handleSubmit} noValidate>
               <label className={styles.label} htmlFor="name">

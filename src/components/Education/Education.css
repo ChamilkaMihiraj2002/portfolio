@@ -1,72 +1,36 @@
-/* Dark / light variants so cards match the page background */
-.bg-dark .projects-card{
-	background-color: rgba(255,255,255,0.02); /* subtle tint on dark bg */
-	color: #e9ecef;
-	border: 1px solid rgba(255,255,255,0.04);
-	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+.theme-dark .projects-card {
+  background: linear-gradient(180deg, rgba(7, 22, 38, 0.94), rgba(4, 14, 24, 0.9));
+  color: var(--text);
+  border: 1px solid rgba(125, 211, 252, 0.12);
+  box-shadow: 0 18px 40px rgba(1, 8, 18, 0.36);
+  border-radius: 22px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.bg-dark .projects-card .project-desc{
-	color: rgba(233,236,239,0.8);
-}
-
-.bg-light .projects-card{
-	background-color: #ffffff;
-	color: inherit;
-	border: 1px solid rgba(0,0,0,0.04);
-	box-shadow: 0 12px 30px rgba(13,110,253,0.12);
-}
-
-/* Make sure Bootstrap's `.text-muted` doesn't stay dark on dark backgrounds.
-   Bootstrap applies `!important` to .text-muted in some builds, so we use a
-   specific selector and `!important` to ensure correct contrast in dark mode. */
-.bg-dark .projects-card .text-muted {
-	color: rgba(233,236,239,0.68) !important;
-}
-
-/* Ensure subtitles and timestamps inherit the lighter color on dark backgrounds */
-.bg-dark .projects-card .card-subtitle,
-.bg-dark .projects-card time,
-.bg-dark .projects-card .card-text {
-	color: rgba(233,236,239,0.88);
-}
-
-/* Links inside cards on dark background */
-.bg-dark .projects-card a {
-	color: #9ad1ff;
-}
-.bg-dark .projects-card a:hover {
-	color: #cfefff;
-	text-decoration: underline;
-}
-
-/* Support theme applied via .theme-dark on <html> (the app toggles this class). */
-.theme-dark .projects-card{
-	background-color: rgba(255,255,255,0.02); /* subtle tint on dark bg */
-	color: #e9ecef;
-	border: 1px solid rgba(255,255,255,0.04);
-	box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-}
-
-.theme-dark .projects-card .project-desc{
-	color: rgba(233,236,239,0.8);
+.theme-dark .projects-card .project-desc {
+  color: var(--muted);
 }
 
 .theme-dark .projects-card .text-muted {
-	color: rgba(233,236,239,0.68) !important;
+  color: var(--muted) !important;
 }
 
 .theme-dark .projects-card .card-subtitle,
 .theme-dark .projects-card time,
 .theme-dark .projects-card .card-text {
-	color: rgba(233,236,239,0.88);
+  color: var(--text);
 }
 
 .theme-dark .projects-card a {
-	color: #9ad1ff;
-}
-.theme-dark .projects-card a:hover {
-	color: #cfefff;
-	text-decoration: underline;
+  color: var(--accent);
 }
 
+.theme-dark .projects-card a:hover {
+  color: var(--secondary-accent);
+  text-decoration: underline;
+}
+
+.theme-dark .projects-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 62px rgba(1, 8, 18, 0.44);
+}

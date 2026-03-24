@@ -2,7 +2,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { FaMedium } from "react-icons/fa";
+import { FaBookOpen, FaMedium } from "react-icons/fa";
 import styles from "./Publications.module.css";
 import { publications, Publication } from "../../data/publications";
 
@@ -17,7 +17,18 @@ const Publications: React.FC = () => {
   return (
     <section id="publications" className="py-5">
       <Container>
-        <h2 className="text-center mb-4 fw-bold">Publications</h2>
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">RESEARCH_FEED</span>
+            <h2 className="section-title">Writing, notes, and technical explainers.</h2>
+            <p className="section-copy">
+              A growing set of articles focused on computing concepts, engineering practice, and AI learning.
+            </p>
+          </div>
+          <div className="section-icon">
+            {React.createElement(FaBookOpen as any, { "aria-hidden": true })}
+          </div>
+        </div>
 
         <div className={styles.grid}>
           {publications.map((pub: Publication, idx: number) => (
@@ -72,7 +83,7 @@ const Publications: React.FC = () => {
         <div className="d-flex justify-content-center">
                   <a
                     href={MEDIUM_URL}
-                    className="btn btn-outline-primary mt-4"
+                    className="btn-ghost-neo mt-4"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="View more courses on LinkedIn"

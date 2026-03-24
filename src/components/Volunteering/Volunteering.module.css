@@ -21,7 +21,7 @@
 }
 
 .volunteeringItem {
-  border-left: 4px solid #3182ce;
+  border-left: 4px solid var(--accent);
   padding-left: 16px;
 }
 
@@ -60,8 +60,6 @@
   color: var(--text);
 }
 
-/* Dark Theme Support */
-/* Ensure bootstrap Card text inherits themed colors */
 :global(.theme-dark) .card-body,
 :global(.theme-light) .card-body {
   color: var(--text);

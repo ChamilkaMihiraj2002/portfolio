@@ -60,14 +60,20 @@ const itemVariants = {
 const Volunteering: React.FC = () => (
   <section className={volunteeringStyles.volunteeringSection} id="volunteering">
     <Container>
-      <header className="d-flex align-items-center justify-content-between mb-4">
-        <h2 className={volunteeringStyles.title}>Volunteering</h2>
-        {React.createElement(FaAlipay as any, {
-                    'aria-hidden': true,
-                    size: 28,
-                    className: 'text-primary',
-                  })}
-      </header>
+      <div className="section-heading">
+        <div>
+          <span className="section-kicker">COMMUNITY_SIGNAL</span>
+          <h2 className="section-title">Leadership and volunteering work.</h2>
+          <p className="section-copy">
+            Community projects that sharpen communication, creativity, and ownership beyond code.
+          </p>
+        </div>
+        <div className="section-icon">
+          {React.createElement(FaAlipay as any, {
+            "aria-hidden": true,
+          })}
+        </div>
+      </div>
       <motion.div
         variants={containerVariants}
         initial="hidden"

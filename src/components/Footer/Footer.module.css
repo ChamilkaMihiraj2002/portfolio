@@ -1,7 +1,7 @@
 .footer {
-  background: var(--wrapper-bg, #f8f9fa);
-  padding: 24px 0 12px 0;
-  border-top: 1px solid #e6e9ee;
+  background: rgba(2, 9, 19, 0.9);
+  padding: 24px 0 18px 0;
+  border-top: 1px solid rgba(125, 211, 252, 0.12);
   margin-top: 4px;
   font-size: 1rem;
 }
@@ -17,17 +17,14 @@
   gap: 8px;
 }
 
+.label {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+}
+
 .text {
   color: var(--muted, #6c757d);
   margin-bottom: 4px;
-}
-
-@media (max-width: 520px) {
-  .container {
-    font-size: 0.95rem;
-    gap: 4px;
-  }
-  .footer {
-    padding: 16px 0 8px 0;
-  }
 }
