@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
       } else {
         const subject = encodeURIComponent(`Contact from ${form.name}`);
         const body = encodeURIComponent(`${form.message}\n\n- ${form.name} (${form.email})`);
-        window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:chamilka2002@gmail.com?subject=${subject}&body=${body}`;
         setStatusMessage("Opened your mail client as a fallback.");
       }
     } catch (error) {
@@ -82,12 +82,12 @@ const Contact: React.FC = () => {
       <div className={styles.container}>
         <div className="section-heading">
           <div>
-            <span className="section-kicker">INITIATE_CONNECTION</span>
+            <span className="section-kicker">Get In Touch</span>
             <h2 id="contactHeading" className="section-title">
               Let&apos;s build something useful together.
             </h2>
             <p className="section-copy">
-              Open to internships, engineering roles, collaborations, and thoughtful AI product conversations.
+              Open to internship opportunities, software engineering roles, collaborations, and thoughtful AI engineering dialogue.
             </p>
           </div>
           <div className="section-icon">
@@ -96,31 +96,32 @@ const Contact: React.FC = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className={styles.content}
         >
           <div className={styles.contactInfo}>
-            <h3 className={styles.contactInfoTitle}>Get In Touch</h3>
+            <h3 className={styles.contactInfoTitle}>Contact Information</h3>
             <p className={styles.introText}>
-              If you have a product idea, research collaboration, or internship opportunity in mind, send a message.
+              If you have a product development idea, research task, or job opening in mind, feel free to send a message.
             </p>
 
             <div className={styles.contactItem}>
-              <svg className={styles.contactIcon} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              <svg className={styles.contactIcon} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               <div className={styles.contactDetails}>
                 <h4>Address</h4>
-                <p>No. 32 Walauwaththa, Dankotuwa<br />Sri Lanka</p>
+                <p>No. 32 Walauwaththa, Dankotuwa, Sri Lanka</p>
               </div>
             </div>
 
             <div className={styles.contactItem}>
-              <svg className={styles.contactIcon} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              <svg className={styles.contactIcon} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               <div className={styles.contactDetails}>
                 <h4>Phone</h4>
@@ -129,8 +130,8 @@ const Contact: React.FC = () => {
             </div>
 
             <div className={styles.contactItem}>
-              <svg className={styles.contactIcon} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              <svg className={styles.contactIcon} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               <div className={styles.contactDetails}>
                 <h4>Email</h4>
@@ -145,88 +146,95 @@ const Contact: React.FC = () => {
                 className={styles.cvDownloadButton}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Download CV as PDF"
+                aria-label="Download Resume PDF"
               >
-                <svg style={{ marginRight: "8px" }} width="20" height="20" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M9 2a1 1 0 0 1 2 0v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 1 1 6.293 8.293L8.5 10.586V2z"/>
-                  <path d="M3 16a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/>
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Download CV
+                Download CV / Resume
               </a>
             </div>
           </div>
 
           <div>
             <form className={styles.form} onSubmit={handleSubmit} noValidate>
-              <label className={styles.label} htmlFor="name">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                className={`${styles.input} ${errors.name ? styles.invalid : ""}`}
-                type="text"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Your name"
-                aria-invalid={!!errors.name}
-                aria-describedby={errors.name ? "name-error" : undefined}
-              />
-              {errors.name && (
-                <div id="name-error" className={styles.error} role="alert">
-                  {errors.name}
-                </div>
-              )}
+              <div>
+                <label className={styles.label} htmlFor="name">
+                  Full Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  className={`${styles.input} ${errors.name ? styles.invalid : ""}`}
+                  type="text"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? "name-error" : undefined}
+                />
+                {errors.name && (
+                  <div id="name-error" className={styles.error} role="alert">
+                    {errors.name}
+                  </div>
+                )}
+              </div>
 
-              <label className={styles.label} htmlFor="email">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                className={`${styles.input} ${errors.email ? styles.invalid : ""}`}
-                type="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="you@domain.com"
-                aria-invalid={!!errors.email}
-                aria-describedby={errors.email ? "email-error" : undefined}
-              />
-              {errors.email && (
-                <div id="email-error" className={styles.error} role="alert">
-                  {errors.email}
-                </div>
-              )}
+              <div>
+                <label className={styles.label} htmlFor="email">
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  className={`${styles.input} ${errors.email ? styles.invalid : ""}`}
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="name@example.com"
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
+                />
+                {errors.email && (
+                  <div id="email-error" className={styles.error} role="alert">
+                    {errors.email}
+                  </div>
+                )}
+              </div>
 
-              <label className={styles.label} htmlFor="message">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                className={`${styles.textarea} ${errors.message ? styles.invalid : ""}`}
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Tell me about your project or question..."
-                rows={6}
-                aria-invalid={!!errors.message}
-                aria-describedby={errors.message ? "message-error" : undefined}
-              />
-              {errors.message && (
-                <div id="message-error" className={styles.error} role="alert">
-                  {errors.message}
-                </div>
-              )}
+              <div>
+                <label className={styles.label} htmlFor="message">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  className={`${styles.textarea} ${errors.message ? styles.invalid : ""}`}
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="Hello, I'd like to collaborate on..."
+                  rows={5}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? "message-error" : undefined}
+                />
+                {errors.message && (
+                  <div id="message-error" className={styles.error} role="alert">
+                    {errors.message}
+                  </div>
+                )}
+              </div>
 
               <div className={styles.actions}>
                 <button className={styles.button} type="submit" disabled={sending} aria-busy={sending}>
-                  {sending ? "Sending..." : "Send Message"}
+                  {sending ? "Sending Message..." : "Send Message"}
                 </button>
               </div>
 
-              <div className={styles.status} aria-live="polite">
-                {statusMessage}
-              </div>
+              {statusMessage && (
+                <div className={styles.status} aria-live="polite">
+                  {statusMessage}
+                </div>
+              )}
             </form>
           </div>
         </motion.div>

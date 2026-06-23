@@ -1,4 +1,3 @@
-// src/components/Courses.tsx
 import React, { useMemo } from "react";
 import "./Courses.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
@@ -17,7 +16,6 @@ type CourseItem = {
   degree: string;
   school: string;
   year: string;
-  details?: string;
   logoUrl?: string;
 };
 
@@ -26,89 +24,88 @@ const educationData: CourseItem[] = [
     degree: "Machine Learning Specialization",
     school: "DeepLearning.AI",
     year: "2025 - August",
-  logoUrl: dpl,
+    logoUrl: dpl,
   },
   {
-    degree: "Mathematics for Machine Learning and Data Science Specialization",
+    degree: "Mathematics for Machine Learning and Data Science",
     school: "DeepLearning.AI",
     year: "2025 - April",
-  logoUrl: dpl,
+    logoUrl: dpl,
   },
   {
     degree: "Python Specialization",
     school: "University of Michigan",
     year: "2025 - March",
-  logoUrl: um,
+    logoUrl: um,
   },
   {
     degree: "Version Control",
     school: "Meta",
     year: "2024 - May",
-  logoUrl: meta,
+    logoUrl: meta,
   },
   {
     degree: "Data Analysis Using Python",
     school: "IBM",
     year: "2024 - July",
-  logoUrl: ibm,
+    logoUrl: ibm,
   },
   {
     degree: "Open Source Foundations",
     school: "IBM",
     year: "2024 - September",
-  logoUrl: ibm,
+    logoUrl: ibm,
   },
   {
-    degree: "OpenCv - Python",
+    degree: "OpenCV - Python",
     school: "OpenCV University",
     year: "2024 - October",
-  logoUrl: opeanCv,
+    logoUrl: opeanCv,
   },
   {
     degree: "AI/ML Engineer - Stage I",
     school: "SLIIT",
     year: "2023 - July",
-  logoUrl: sliit,
+    logoUrl: sliit,
   },
   {
     degree: "Python for Data Science",
     school: "IBM",
     year: "2023 - May",
-  logoUrl: ibm,
+    logoUrl: ibm,
   },
   {
     degree: "Internet of Things (IoT)",
     school: "Cisco Network Academy",
     year: "2023 - June",
-  logoUrl: cisco,
+    logoUrl: cisco,
   },
   {
     degree: "Data Science Methodologies",
     school: "IBM",
     year: "2023 - May",
-  logoUrl: ibm,
+    logoUrl: ibm,
   },
   {
     degree: "Cybersecurity",
     school: "Cisco Network Academy",
     year: "2023 - May",
-  logoUrl: cisco,
+    logoUrl: cisco,
   },
-  
 ];
 
 const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.05,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" as any } },
 };
 
 const Courses: React.FC = () => {
@@ -116,14 +113,14 @@ const Courses: React.FC = () => {
   const LINKEDIN_COURSES_URL = "https://www.linkedin.com/in/chamilka-mihiraj-perera2002/details/certifications/";
 
   return (
-    <section id="education" className="py-5">
+    <section id="certifications">
       <Container>
         <div className="section-heading">
           <div>
-            <span className="section-kicker">CERTIFICATION_LOG</span>
-            <h2 className="section-title">Continuous learning in motion.</h2>
+            <span className="section-kicker">Professional Training</span>
+            <h2 className="section-title">Certifications & focused courses.</h2>
             <p className="section-copy">
-              Specializations and focused certifications across machine learning, software engineering, and IoT.
+              Specialized coursework and certifications from global institutions in machine learning, engineering, and data science.
             </p>
           </div>
           <div className="section-icon">
@@ -137,37 +134,31 @@ const Courses: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <Row className="g-3">
-            {education.map((edu) => (
-              <Col key={`${edu.school}-${edu.year}`} xs={12} md={6} lg={4}>
-                <motion.article variants={itemVariants} className="h-100">
-                  <Card className="h-100 shadow-sm border-0 edu-card projects-card">
-                    <Card.Body>
-                      <div className="d-flex align-items-center mb-2">
+            {education.map((edu, idx) => (
+              <Col key={`${edu.school}-${edu.degree}-${idx}`} xs={12} sm={6} md={4} lg={3}>
+                <motion.article variants={itemVariants as any} className="h-100">
+                  <Card className="cert-card border-0">
+                    <Card.Body className="p-3 d-flex flex-column h-100">
+                      <div className="d-flex align-items-start gap-3 mb-2">
                         {edu.logoUrl && (
                           <img
                             src={edu.logoUrl}
                             alt={`${edu.school} logo`}
-                            width={48}
-                            height={48}
-                            className="me-3 rounded"
-                            style={{ objectFit: "cover" }}
+                            className="cert-logo"
                           />
                         )}
                         <div>
-                          <Card.Title className="fw-bold mb-0">{edu.degree}</Card.Title>
-                          <Card.Subtitle className="text-muted">{edu.school}</Card.Subtitle>
+                          <h3 className="cert-title">{edu.degree}</h3>
+                          <span className="cert-school">{edu.school}</span>
                         </div>
                       </div>
 
-                      <Card.Text>
-                        <time className="text-muted" dateTime={edu.year}>
-                          {edu.year}
-                        </time>
-                        {edu.details && <div className="mt-2 small project-desc">{edu.details}</div>}
-                      </Card.Text>
+                      <div className="mt-auto">
+                        <span className="cert-date">{edu.year}</span>
+                      </div>
                     </Card.Body>
                   </Card>
                 </motion.article>
@@ -182,10 +173,10 @@ const Courses: React.FC = () => {
             className="btn-ghost-neo mt-4"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="View more courses on LinkedIn"
+            aria-label="View more certifications on LinkedIn"
           >
-            {React.createElement(FaLinkedin as any, { style: { verticalAlign: "middle", marginRight: 6, fontSize: 24 } })}
-            View more on LinkedIn
+            {React.createElement(FaLinkedin as any, { style: { verticalAlign: "middle", marginRight: 6, fontSize: 20 } })}
+            Verify Certifications on LinkedIn
           </a>
         </div>
       </Container>
@@ -194,6 +185,3 @@ const Courses: React.FC = () => {
 };
 
 export default Courses;
-
-// Ensure this file is treated as a module under --isolatedModules
-export {};

@@ -1,4 +1,3 @@
-// src/components/Publications.tsx
 import React from "react";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
@@ -7,7 +6,7 @@ import styles from "./Publications.module.css";
 import { publications, Publication } from "../../data/publications";
 
 const cardVariant = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 15 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -15,14 +14,14 @@ const Publications: React.FC = () => {
   const MEDIUM_URL = "https://medium.com/@chamilkaperera5";
 
   return (
-    <section id="publications" className="py-5">
+    <section id="publications">
       <Container>
         <div className="section-heading">
           <div>
-            <span className="section-kicker">RESEARCH_FEED</span>
-            <h2 className="section-title">Writing, notes, and technical explainers.</h2>
+            <span className="section-kicker">Technical Writing</span>
+            <h2 className="section-title">Articles & technical explainers.</h2>
             <p className="section-copy">
-              A growing set of articles focused on computing concepts, engineering practice, and AI learning.
+              A collection of technical articles exploring computer architecture, data science libraries, and DevOps workflows.
             </p>
           </div>
           <div className="section-icon">
@@ -39,18 +38,19 @@ const Publications: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.12 }}
               variants={cardVariant}
-              transition={{ delay: idx * 0.08, duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: idx * 0.05, duration: 0.4, ease: "easeOut" }}
               role="article"
               aria-labelledby={`${pub.id}-title`}
             >
               <div className={styles.imageContainer}>
-                <img 
-                  src={pub.image} 
+                <img
+                  src={pub.image}
                   alt={pub.title}
                   className={styles.image}
+                  loading="lazy"
                 />
               </div>
-              
+
               <div className={styles.content}>
                 <h3 id={`${pub.id}-title`} className={styles.title}>
                   {pub.link ? (
@@ -81,17 +81,17 @@ const Publications: React.FC = () => {
         </div>
 
         <div className="d-flex justify-content-center">
-                  <a
-                    href={MEDIUM_URL}
-                    className="btn-ghost-neo mt-4"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="View more courses on LinkedIn"
-                  >
-                    {React.createElement(FaMedium as any, { style: { verticalAlign: "middle", marginRight: 6, fontSize: 24 } })}
-                    View more on Medium
-                  </a>
-                </div>
+          <a
+            href={MEDIUM_URL}
+            className="btn-ghost-neo mt-5"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View more articles on Medium"
+          >
+            {React.createElement(FaMedium as any, { style: { verticalAlign: "middle", marginRight: 8, fontSize: 20 } })}
+            Read More on Medium
+          </a>
+        </div>
       </Container>
     </section>
   );

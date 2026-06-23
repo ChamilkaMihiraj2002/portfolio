@@ -1,66 +1,29 @@
 .volunteeringSection {
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  padding: 100px 24px;
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: var(--heading);
-}
-
-.volunteeringList {
+.cardBodyReset {
+  padding: 1.5rem !important;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.volunteeringItem {
-  border-left: 4px solid var(--accent);
-  padding-left: 16px;
-}
-
-.organization {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--heading);
+  height: 100%;
 }
 
 .role {
-  display: block;
-  font-size: 0.95rem;
-  color: var(--muted);
+  font-family: var(--font-heading);
+  color: var(--accent-cyan) !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-top: 2px;
 }
 
 .period {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 550;
+  color: var(--text-muted) !important;
+  margin-top: 0.8rem;
   display: block;
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-.card-subtitle,
-.volunteeringPeriod {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.description {
-  font-size: 1rem;
-  color: var(--text);
-}
-
-.cardBodyReset {
-  color: var(--text);
-}
-
-:global(.theme-dark) .card-body,
-:global(.theme-light) .card-body {
-  color: var(--text);
 }

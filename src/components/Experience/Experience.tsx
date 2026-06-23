@@ -2,19 +2,18 @@ import React from "react";
 import { Container, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaBriefcase } from "react-icons/fa";
-import "../Education/Education.css";
 import "./Experience.css";
 
 const Experience: React.FC = () => {
   return (
-    <section id="experience" className="py-5">
+    <section id="experience">
       <Container>
         <div className="section-heading">
           <div>
-            <span className="section-kicker">CURRENT_MISSION</span>
-            <h2 className="section-title">Work experience and industry exposure.</h2>
+            <span className="section-kicker">Professional History</span>
+            <h2 className="section-title">Work experience & industry exposure.</h2>
             <p className="section-copy">
-              The professional work I am doing right now while growing deeper in AI engineering and product delivery.
+              Developing practical AI solutions and gains hands-on experience in building, improving, and integrating intelligent systems into real-world products.
             </p>
           </div>
           <div className="section-icon">
@@ -24,38 +23,37 @@ const Experience: React.FC = () => {
           </div>
         </div>
 
-        <motion.article
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <Card className="shadow-sm border-0 projects-card">
-            <Card.Body className="p-4 p-md-5">
-              <div className="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
-                <div className="experienceHeader">
-                  <div className="companyBlock">
-                    <div className="casloWordmark" aria-label="Caslo logo">
+        <div className="experience-timeline">
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <Card className="experience-card border-0">
+              <Card.Body className="p-4 p-md-5">
+                <div className="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+                  <div className="company-block">
+                    <div className="caslo-logo" aria-label="Caslo Company Logo">
                       CASLO
                     </div>
-                    <div className="companyMeta">
-                      <Card.Title className="fw-bold mb-1">AI Engineering Intern</Card.Title>
-                      <Card.Subtitle className="text-muted">Caslo</Card.Subtitle>
+                    <div>
+                      <h3 className="role-title">AI Engineering Intern</h3>
+                      <span className="company-name">Caslo · Remote / Hybrid</span>
                     </div>
                   </div>
+                  <span className="time-badge">
+                    2026 - Present
+                  </span>
                 </div>
-                <time className="text-muted" dateTime="2026-Present">
-                  2026 - Present
-                </time>
-              </div>
 
-              <Card.Text className="mb-0 experienceSummary">
-                Working as an AI Engineering Intern at Caslo, contributing to practical AI solutions and gaining
-                hands-on experience in building, improving, and integrating intelligent systems into real-world products.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </motion.article>
+                <p className="experience-summary">
+                  Working as an AI Engineering Intern at Caslo, contributing to production-grade AI solutions. Implemented agentic AI workflows, optimized Retrieval-Augmented Generation (RAG) pipelines, and gained hands-on expertise in wrapping open-source LLMs into API endpoints for reliable product delivery.
+                </p>
+              </Card.Body>
+            </Card>
+          </motion.article>
+        </div>
       </Container>
     </section>
   );

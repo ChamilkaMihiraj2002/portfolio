@@ -85,14 +85,14 @@ const Projects: React.FC = () => {
     {
       title: "Finance Paysheet Emailer",
       description: "Automation tool for preparing and distributing payroll-related communication reliably.",
-      techstack: ["Python", "SQLIte", "smtplib", "pytest", "Modern TKinter"],
+      techstack: ["Python", "SQLite", "smtplib", "pytest", "Modern TKinter"],
       github: "#",
       demo: "#",
       category: "desktop",
       image: emailler,
     },
     {
-      title: "AI Web Scraper (LangChain, Ollama, Selenium)",
+      title: "AI Web Scraper",
       description: "Agentic workflow for scraping, structuring, and extracting value from live website content.",
       techstack: ["Python", "LangChain", "Ollama", "Selenium", "Llama 3.2", "Vector Embeddings"],
       github: "https://github.com/ChamilkaMihiraj2002/ai-scraper",
@@ -101,7 +101,7 @@ const Projects: React.FC = () => {
       image: localRAG,
     },
     {
-      title: "Local AI Agent with Python, Ollama, LangChain & RAG",
+      title: "Local AI Agent (RAG)",
       description: "Private local assistant powered by retrieval, embeddings, and open-source language models.",
       techstack: ["Python", "Streamlit", "LangChain", "ChromaDB", "Ollama", "Llama 3.2", "Vector Embeddings"],
       github: "https://github.com/ChamilkaMihiraj2002/Local-AI-Agent-With-Python-Ollama-LangChain-RAG-",
@@ -110,7 +110,7 @@ const Projects: React.FC = () => {
       image: localRAG,
     },
     {
-      title: "Automatic Bottle Filling and Capping Machine",
+      title: "Automatic Bottle Filling & Capping Machine",
       description: "IoT and embedded systems build combining hardware logic with automation for industrial tasks.",
       techstack: ["Arduino", "C", "C++", "Git", "GitHub"],
       github: "https://github.com/ChamilkaMihiraj2002/Automatic-bottle-filling-and-capping-machine",
@@ -141,10 +141,10 @@ const Projects: React.FC = () => {
       <Container>
         <div className="section-heading">
           <div>
-            <span className="section-kicker">DEPLOYED_MODELS</span>
+            <span className="section-kicker">Software Portfolio</span>
             <h2 className="section-title">Projects engineered for real use.</h2>
             <p className="section-copy">
-              Product builds across full-stack apps, automation tools, AI workflows, and embedded systems.
+              Product builds across full-stack applications, AI agentic workflows, desktop utilities, and IoT hardware setups.
             </p>
           </div>
           <div className="section-icon">
@@ -157,45 +157,54 @@ const Projects: React.FC = () => {
             className={`${styles.tabButton} ${selectedCategory === "fullstack" ? styles.active : ""}`}
             onClick={() => handleCategoryChange("fullstack")}
           >
-            Full-stack
-          </button>
-          <button
-            className={`${styles.tabButton} ${selectedCategory === "desktop" ? styles.active : ""}`}
-            onClick={() => handleCategoryChange("desktop")}
-          >
-            Desktop
+            Full-Stack
           </button>
           <button
             className={`${styles.tabButton} ${selectedCategory === "aiml" ? styles.active : ""}`}
             onClick={() => handleCategoryChange("aiml")}
           >
-            AI / ML
+            AI / Machine Learning
+          </button>
+          <button
+            className={`${styles.tabButton} ${selectedCategory === "desktop" ? styles.active : ""}`}
+            onClick={() => handleCategoryChange("desktop")}
+          >
+            Desktop Utilities
           </button>
           <button
             className={`${styles.tabButton} ${selectedCategory === "iot" ? styles.active : ""}`}
             onClick={() => handleCategoryChange("iot")}
           >
-            IoT
+            IoT & Hardware
           </button>
         </div>
 
         <div className={styles.projectsGrid}>
           {paginatedProjects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={index + (currentPage - 1) * PROJECTS_PER_PAGE}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              viewport={{ once: true }}
             >
               <div className={styles.projectCard}>
                 <img
                   src={project.image || "/logo192.png"}
                   alt={`${project.title} preview`}
                   className={styles.projectImage}
+                  loading="lazy"
                 />
                 <div className={styles.cardContent}>
-                  <span className={styles.cardCategory}>{project.category}</span>
+                  <span className={styles.cardCategory}>
+                    {project.category === "fullstack"
+                      ? "Full-Stack"
+                      : project.category === "aiml"
+                      ? "AI / ML"
+                      : project.category === "desktop"
+                      ? "Desktop App"
+                      : "IoT & Hardware"}
+                  </span>
                   <h3 className={styles.projectTitle}>{project.title}</h3>
                   <p className={styles.projectDescription}>{project.description}</p>
                   <div className={styles.techStack}>
@@ -210,13 +219,14 @@ const Projects: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.actionButton}
+                    aria-label={`View code repository for ${project.title}`}
                   >
                     {React.createElement(FaCodeBranch as any, { "aria-hidden": true })}
                     View Repository
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
@@ -226,6 +236,7 @@ const Projects: React.FC = () => {
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
               className={styles.tabButton}
+              aria-label="Previous page of projects"
             >
               Previous
             </button>
@@ -234,6 +245,7 @@ const Projects: React.FC = () => {
                 key={i + 1}
                 onClick={() => setCurrentPage(i + 1)}
                 className={`${styles.tabButton} ${currentPage === i + 1 ? styles.active : ""}`}
+                aria-label={`Go to page ${i + 1} of projects`}
               >
                 {i + 1}
               </button>
@@ -242,6 +254,7 @@ const Projects: React.FC = () => {
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
               className={styles.tabButton}
+              aria-label="Next page of projects"
             >
               Next
             </button>
@@ -256,8 +269,8 @@ const Projects: React.FC = () => {
             rel="noopener noreferrer"
             aria-label="View more projects on GitHub"
           >
-            {React.createElement(FaGithub as any, { style: { verticalAlign: "middle", marginRight: 6, fontSize: 24 } })}
-            View more on Github
+            {React.createElement(FaGithub as any, { style: { verticalAlign: "middle", marginRight: 8, fontSize: 20 } })}
+            View More on GitHub
           </a>
         </div>
       </Container>

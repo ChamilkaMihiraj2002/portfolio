@@ -1,10 +1,8 @@
-
-import  React from "react";
+import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { FaAlipay } from "react-icons/fa";
+import { FaHandsHelping } from "react-icons/fa";
 import volunteeringStyles from './Volunteering.module.css';
-import projectStyles from '../Projects/Projects.module.css';
 
 import fitm from "../../images/Volunteering/fitm.jpg";
 import images from "../../images/Volunteering/images.jpg";
@@ -13,31 +11,31 @@ import rotract from "../../images/Volunteering/rotaract_club_of_university_of_mo
 
 const volunteeringData = [
   {
-    organization: "IES Research Labs - Faculty of IT University of Moratuwa",
+    organization: "IES Research Labs - Faculty of IT, UoM",
     role: "Firmware Team Member",
     period: "2025 - Present",
-    description: "Designing and developing firmware for IoT devices.",
+    description: "Designing and developing firmware algorithms and drivers for IoT sensor network setups.",
     logoUrl: logo,
   },
   {
     organization: "Sasnaka Sansada Foundation",
-    role: "Volunteer",
+    role: "Volunteer Teacher",
     period: "2023 - Present",
-    description: "Teaching Mathematics and ICT to underprivileged children.",
+    description: "Teaching Mathematics and ICT topics to underprivileged school children across Sri Lanka.",
     logoUrl: images,
   },
   {
     organization: "Rotaract Club of University of Moratuwa",
     role: "Graphic Designer",
     period: "2023 - Present",
-    description: "Designing promotional materials for club events and activities.",
+    description: "Creating digital illustration campaigns and brand visual assets for community service events.",
     logoUrl: rotract,
   },
   {
-    organization: "FIT Moments",
+    organization: "FIT Moments - Faculty of IT",
     role: "Creative Pillar Head",
     period: "2023 - Present",
-    description: "Designing creative content for social media and events.",
+    description: "Overseeing design systems, creative campaigns, and social media layout compositions.",
     logoUrl: fitm,
   },
 ];
@@ -46,68 +44,62 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.08,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
-
 
 const Volunteering: React.FC = () => (
   <section className={volunteeringStyles.volunteeringSection} id="volunteering">
     <Container>
       <div className="section-heading">
         <div>
-          <span className="section-kicker">COMMUNITY_SIGNAL</span>
-          <h2 className="section-title">Leadership and volunteering work.</h2>
+          <span className="section-kicker">Leadership & Influence</span>
+          <h2 className="section-title">Volunteering & community impact.</h2>
           <p className="section-copy">
-            Community projects that sharpen communication, creativity, and ownership beyond code.
+            Community roles where I leverage design, mentorship, and embedded systems to contribute beyond academic environments.
           </p>
         </div>
         <div className="section-icon">
-          {React.createElement(FaAlipay as any, {
-            "aria-hidden": true,
-          })}
+          {React.createElement(FaHandsHelping as any, { "aria-hidden": true })}
         </div>
       </div>
+      
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
-        <Row className="g-3">
+        <Row className="g-4">
           {volunteeringData.map((item, idx) => (
-            <Col key={item.organization + idx} xs={12} md={6} lg={4}>
-              <motion.article variants={itemVariants} className="h-100">
-                <Card className={`h-100 shadow-sm border-0 ${projectStyles.projectCard}`}>
+            <Col key={item.organization + idx} xs={12} md={6} lg={3}>
+              <motion.article variants={itemVariants as any} className="h-100">
+                <Card className="edu-card border-0 h-100">
                   <Card.Body className={volunteeringStyles.cardBodyReset}>
-                    <div className="d-flex align-items-center mb-2">
+                    <div className="d-flex align-items-center gap-3 mb-3">
                       {item.logoUrl && (
                         <img
                           src={item.logoUrl}
                           alt={`${item.organization} logo`}
-                          width={48}
-                          height={48}
-                          className="me-3 rounded"
-                          style={{ objectFit: "cover" }}
+                          className="edu-logo-img"
                         />
                       )}
                       <div>
-                        <Card.Title className="fw-bold mb-0">{item.organization}</Card.Title>
-                        <Card.Subtitle className={`${volunteeringStyles.role} card-subtitle`}>{item.role}</Card.Subtitle>
+                        <h3 className="edu-title" style={{ fontSize: "1rem" }}>{item.organization}</h3>
+                        <span className={volunteeringStyles.role}>{item.role}</span>
                       </div>
                     </div>
-                    <Card.Text>
-                      <time className={`${volunteeringStyles.period} volunteeringPeriod`} dateTime={item.period}>
-                        {item.period}
-                      </time>
-                      <div className="mt-2 small project-desc">{item.description}</div>
-                    </Card.Text>
+                    
+                    <div className="mt-auto">
+                      <p className="edu-details" style={{ margin: "0 0 1rem" }}>{item.description}</p>
+                      <span className={volunteeringStyles.period}>{item.period}</span>
+                    </div>
                   </Card.Body>
                 </Card>
               </motion.article>

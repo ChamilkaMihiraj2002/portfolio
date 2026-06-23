@@ -4,7 +4,7 @@ import logo from "../images/My images/me.png";
 import { FaDownload, FaGithub, FaLinkedin, FaMedium, FaTerminal } from "react-icons/fa";
 import { SiKaggle } from "react-icons/si";
 
-const TYPEWRITER_TEXT = "> AI Engineering Intern | Full-stack Builder | Continuous Learner";
+const TYPEWRITER_TEXT = "AI Engineering Intern | Full-Stack Developer | IT Undergraduate";
 
 const TypewriterLine: React.FC = () => {
   const [displayText, setDisplayText] = useState("");
@@ -18,7 +18,7 @@ const TypewriterLine: React.FC = () => {
       } else {
         window.clearInterval(timer);
       }
-    }, 42);
+    }, 40);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -43,13 +43,11 @@ const Home: React.FC = () => {
         >
           <span className="status-pill">
             <span className="status-dot" />
-            SYSTEM_STATUS: ONLINE
+            Active AI Engineering Intern
           </span>
 
           <h1 className="headline">
-            Building dependable software
-            <br />
-            with intelligent systems.
+            Engineering dependable software with intelligent systems.
           </h1>
 
           <div className="terminal-line">
@@ -58,23 +56,23 @@ const Home: React.FC = () => {
 
           <p className="lede">
             BSc (Hons) IT&M undergraduate at University of Moratuwa and AI engineering intern focused on turning machine intelligence,
-            automation, and modern web engineering into polished products people can actually use.
+            automation, and modern web engineering into polished, high-performance software.
           </p>
 
           <div className="action-row">
             <a href="#projects" className="btn-primary-neo" aria-label="View projects">
-              Initialize View
+              Explore Projects
             </a>
             <a href="#contact" className="btn-ghost-neo" aria-label="Contact Chamilka">
-              /contact
+              Get in Touch
             </a>
           </div>
 
           <div className="chip-row" aria-label="Key capabilities">
-            <span className="chip">AI workflows</span>
+            <span className="chip">AI Agentic Workflows</span>
             <span className="chip">React + TypeScript</span>
-            <span className="chip">Python automation</span>
-            <span className="chip">Research-driven shipping</span>
+            <span className="chip">Python & Automation</span>
+            <span className="chip">RAG & LLM Integration</span>
           </div>
 
           <div className="social-inline">
@@ -127,7 +125,7 @@ const Home: React.FC = () => {
               aria-label="Download CV"
             >
               {React.createElement(FaDownload as any, { "aria-hidden": true })}
-              CV
+              Download CV
             </a>
           </div>
         </motion.div>
@@ -144,14 +142,14 @@ const Home: React.FC = () => {
               <div className="avatar-ring">
                 <img
                   src={logo}
-                  alt="Chamilka Mihiraj"
+                  alt="Chamilka Mihiraj Perera"
                   className="avatar"
                   decoding="async"
                   fetchPriority="high"
                   loading="eager"
                 />
               </div>
-              <span className="profile-badge profile-badge-bottom">Open to impactful work</span>
+              <span className="profile-badge profile-badge-bottom">District 1st A/L</span>
             </div>
 
             <div className="profile-meta">
@@ -159,21 +157,21 @@ const Home: React.FC = () => {
                 <p className="profile-eyebrow">Featured Profile</p>
                 <h2 className="profile-name">Chamilka Mihiraj Perera</h2>
               </div>
-              <span className="profile-availability">Available for internships</span>
+              <span className="profile-availability">Available</span>
             </div>
 
             <div className="stat-grid">
               <div className="stat-card">
                 <span className="stat-value">25+</span>
-                <span className="stat-label">Projects shipped</span>
+                <span className="stat-label">Projects Shipped</span>
               </div>
               <div className="stat-card">
                 <span className="stat-value">3.57</span>
                 <span className="stat-label">Current GPA</span>
               </div>
               <div className="stat-card">
-                <span className="stat-value">AI/ML</span>
-                <span className="stat-label">LLMs, NLP, OpenCV, Ollama</span>
+                <span className="stat-value">Moratuwa</span>
+                <span className="stat-label">University</span>
               </div>
             </div>
           </div>
@@ -183,22 +181,26 @@ const Home: React.FC = () => {
               <span className="terminal-dot terminal-dot-red" />
               <span className="terminal-dot terminal-dot-amber" />
               <span className="terminal-dot terminal-dot-green" />
-              <span className="terminal-file">profile.json</span>
+              <span className="terminal-file">profile_agent.py</span>
             </div>
             <div className="terminal-body">
               <div className="terminal-header">
                 {React.createElement(FaTerminal as any, { "aria-hidden": true })}
-                <span>root@portfolio:~</span>
+                <span>root@chamilka:~/portfolio</span>
               </div>
               <pre className="terminal-code">
-                <code>{`{
-  "name": "Chamilka Mihiraj Perera",
-  "role": "AI Engineering Intern",
-  "focus": ["AI Systems", "Automation", "Full-stack Dev"],
-  "education": "BSc (Hons) IT&M Undergraduate",
-  "location": "Sri Lanka",
-  "motto": "Coding is beautiful when it writes logically"
-}`}</code>
+                <code>
+                  <span className="code-keyword">class</span> <span className="code-function">AIEngineer</span>:<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span className="code-keyword">def</span> <span className="code-function">__init__</span>(self):<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = <span className="code-string">"Chamilka Mihiraj Perera"</span><br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.role = <span className="code-string">"AI Engineering Intern"</span><br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.gpa = <span className="code-number">3.57</span><br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.focus = [<span className="code-string">"RAG"</span>, <span className="code-string">"AI Agents"</span>, <span className="code-string">"Fullstack"</span>]<br />
+                  <br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span className="code-keyword">def</span> <span className="code-function">deploy_intelligent_system</span>(self):<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="code-comment"># Turning research into dependably shipped code</span><br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="code-keyword">return</span> self.focus
+                </code>
               </pre>
             </div>
           </div>

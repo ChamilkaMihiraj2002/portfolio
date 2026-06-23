@@ -4,9 +4,9 @@ import styles from "./Footer.module.css";
 const Footer: React.FC = () => (
   <footer className={styles.footer}>
     <div className={styles.container}>
-      <span className={styles.label}>SYSTEM ARCHITECTURE</span>
+      <span className={styles.label}>Chamilka Mihiraj Perera</span>
       <span className={styles.text}>
-        © {new Date().getFullYear()} Chamilka Mihiraj Perera. All logic verified.
+        © {new Date().getFullYear()} All Rights Reserved. Built with React & TypeScript.
       </span>
     </div>
   </footer>
