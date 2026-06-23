@@ -1,12 +1,10 @@
 import React from "react";
-import { FaTerminal } from "react-icons/fa";
 
 const NavBar: React.FC = () => {
   return (
     <nav className="nav-shell">
       <div className="section-shell nav-inner">
         <a href="#home" className="nav-brand" aria-label="Go to home">
-          {React.createElement(FaTerminal as any, { className: "nav-brand-icon", "aria-hidden": true })}
           <span>CHAMILKA.DEV</span>
         </a>
 
