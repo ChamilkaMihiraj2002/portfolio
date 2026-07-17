@@ -18,11 +18,13 @@ function App() {
   useEffect(() => {
     try {
       const root = document.documentElement;
-      root.style.backgroundColor = "#FAFAFA";
-      
-      const meta = document.querySelector('meta[name="theme-color"]') || document.createElement("meta");
+      root.style.backgroundColor = "#FFFFFF";
+
+      const meta =
+        document.querySelector('meta[name="theme-color"]') ||
+        document.createElement("meta");
       (meta as HTMLMetaElement).setAttribute("name", "theme-color");
-      (meta as HTMLMetaElement).setAttribute("content", "#FAFAFA");
+      (meta as HTMLMetaElement).setAttribute("content", "#FFFFFF");
       if (!document.head.contains(meta)) {
         document.head.appendChild(meta);
       }
@@ -32,28 +34,25 @@ function App() {
   }, []);
 
   return (
-    <div className="app-frame">
-      {/* Background visual components */}
-      <div className="app-grid" aria-hidden="true" />
-      <div className="ambient ambient-cyan" aria-hidden="true" />
-      <div className="ambient ambient-indigo" aria-hidden="true" />
-      <div className="ambient ambient-violet" aria-hidden="true" />
-
+    <div className="app-shell">
       <NavBar />
 
-      <main className="app-main">
+      <main className="site-main">
         <Home />
-        <Suspense fallback={null}>
-          <Projects />
-          <Experience />
-          <Education />
-          <Volunteering />
-          <Courses />
-          <TechStack />
-          <Publications />
-          <Contact />
-          <Footer />
-        </Suspense>
+
+        <div className="content-rhythm">
+          <Suspense fallback={null}>
+            <Projects />
+            <Experience />
+            <Education />
+            <Volunteering />
+            <Courses />
+            <TechStack />
+            <Publications />
+            <Contact />
+            <Footer />
+          </Suspense>
+        </div>
       </main>
     </div>
   );
