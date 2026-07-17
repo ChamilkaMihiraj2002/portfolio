@@ -30,7 +30,7 @@ const educationData: EducationItem[] = [
     degree: "GCE A/L - 3A's District 1st",
     school: "Sri Sangabodhi National College",
     year: "2021 – 2022",
-    details: "Achieved 3A's with the highest district rank, specializing in Physical Sciences.",
+    details: "Achieved 3A's with the highest district rank in the GCE A/L examinations, demonstrating excellence in advanced level studies.",
     logoUrl: ssclog,
   },
   {
@@ -58,6 +58,7 @@ const educationData: EducationItem[] = [
     degree: "GCE O/L - 6A's 2B's C",
     school: "Sri Sangabodhi National College",
     year: "2017 – 2018",
+     details: "Achieved 6A's, 2B's, and C in the GCE O/L examinations.",
     logoUrl: ssclog,
   },
 ];

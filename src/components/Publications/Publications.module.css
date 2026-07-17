@@ -10,8 +10,8 @@
   background: var(--bg-secondary);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-premium);
-  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-premium), inset 0 1px 0 rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   transition: var(--transition-smooth);
   display: flex;
   flex-direction: column;
@@ -20,15 +20,15 @@
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: var(--accent);
-  box-shadow: 0 25px 50px rgba(99, 102, 241, 0.12), var(--shadow-glow);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), var(--shadow-glow);
 }
 
 .imageContainer {
   width: 100%;
   aspect-ratio: 16/9;
   overflow: hidden;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   background-color: var(--bg-tertiary);
 }
 
@@ -56,12 +56,12 @@
   font-size: 1.12rem;
   font-weight: 700;
   margin: 0;
-  color: #ffffff;
+  color: var(--text-primary);
   line-height: 1.45;
 }
 
 .link {
-  color: #ffffff;
+  color: var(--text-primary);
   transition: var(--transition-smooth);
 }
 
@@ -84,7 +84,7 @@
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--text-muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-top: 0.8rem;
 }
 

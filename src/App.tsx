@@ -18,11 +18,11 @@ function App() {
   useEffect(() => {
     try {
       const root = document.documentElement;
-      root.style.backgroundColor = "#090e16";
+      root.style.backgroundColor = "#FAFAFA";
       
       const meta = document.querySelector('meta[name="theme-color"]') || document.createElement("meta");
       (meta as HTMLMetaElement).setAttribute("name", "theme-color");
-      (meta as HTMLMetaElement).setAttribute("content", "#090e16");
+      (meta as HTMLMetaElement).setAttribute("content", "#FAFAFA");
       if (!document.head.contains(meta)) {
         document.head.appendChild(meta);
       }
