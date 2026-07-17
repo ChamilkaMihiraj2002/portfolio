@@ -1,8 +1,7 @@
 import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaHandsHelping } from "react-icons/fa";
-import volunteeringStyles from './Volunteering.module.css';
+import volunteeringStyles from "./Volunteering.module.css";
 
 import fitm from "../../images/Volunteering/fitm.jpg";
 import images from "../../images/Volunteering/images.jpg";
@@ -14,100 +13,79 @@ const volunteeringData = [
     organization: "IES Research Labs - Faculty of IT, UoM",
     role: "Firmware Team Member",
     period: "2025 - Present",
-    description: "Designing and developing firmware algorithms and drivers for IoT sensor network setups.",
+    description:
+      "Designing firmware algorithms and drivers for IoT sensor network setups and embedded experimentation.",
     logoUrl: logo,
   },
   {
     organization: "Sasnaka Sansada Foundation",
     role: "Volunteer Teacher",
     period: "2023 - Present",
-    description: "Teaching Mathematics and ICT topics to underprivileged school children across Sri Lanka.",
+    description:
+      "Teaching mathematics and ICT to underprivileged school children across Sri Lanka.",
     logoUrl: images,
   },
   {
     organization: "Rotaract Club of University of Moratuwa",
     role: "Graphic Designer",
     period: "2023 - Present",
-    description: "Creating digital illustration campaigns and brand visual assets for community service events.",
+    description:
+      "Creating illustration-driven campaigns and visual assets for community service events.",
     logoUrl: rotract,
   },
   {
     organization: "FIT Moments - Faculty of IT",
     role: "Creative Pillar Head",
     period: "2023 - Present",
-    description: "Overseeing design systems, creative campaigns, and social media layout compositions.",
+    description:
+      "Leading design systems, creative direction, and campaign composition for student initiatives.",
     logoUrl: fitm,
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-};
-
 const Volunteering: React.FC = () => (
-  <section className={volunteeringStyles.volunteeringSection} id="volunteering">
-    <Container>
+  <section className={volunteeringStyles.section} id="volunteering">
+    <div className="section-shell">
       <div className="section-heading">
         <div>
-          <span className="section-kicker">Leadership & Influence</span>
-          <h2 className="section-title">Volunteering & community impact.</h2>
+          <span className="section-kicker">Community Work</span>
+          <h2 className="section-title">A quieter record of leadership, teaching, and contribution.</h2>
           <p className="section-copy">
-            Community roles where I leverage design, mentorship, and embedded systems to contribute beyond academic environments.
+            Work outside the product stack where design, mentorship, embedded systems, and service
+            become part of the same broader practice.
           </p>
         </div>
         <div className="section-icon">
-          {React.createElement(FaHandsHelping as any, { "aria-hidden": true })}
+          {React.createElement(FaHandsHelping as React.ElementType, {
+            "aria-hidden": true,
+          })}
         </div>
       </div>
-      
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-      >
-        <Row className="g-4">
-          {volunteeringData.map((item, idx) => (
-            <Col key={item.organization + idx} xs={12} md={6} lg={3}>
-              <motion.article variants={itemVariants as any} className="h-100">
-                <Card className="edu-card border-0 h-100">
-                  <Card.Body className={volunteeringStyles.cardBodyReset}>
-                    <div className="d-flex align-items-center gap-3 mb-3">
-                      {item.logoUrl && (
-                        <img
-                          src={item.logoUrl}
-                          alt={`${item.organization} logo`}
-                          className="edu-logo-img"
-                        />
-                      )}
-                      <div>
-                        <h3 className="edu-title" style={{ fontSize: "1rem" }}>{item.organization}</h3>
-                        <span className={volunteeringStyles.role}>{item.role}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-auto">
-                      <p className="edu-details" style={{ margin: "0 0 1rem" }}>{item.description}</p>
-                      <span className={volunteeringStyles.period}>{item.period}</span>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </motion.article>
-            </Col>
-          ))}
-        </Row>
-      </motion.div>
-    </Container>
+
+      <div className={volunteeringStyles.grid}>
+        {volunteeringData.map((item, index) => (
+          <motion.article
+            key={`${item.organization}-${index}`}
+            className={volunteeringStyles.card}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.12 }}
+            transition={{ duration: 0.6, ease: "easeInOut", delay: index * 0.05 }}
+          >
+            <div className={volunteeringStyles.head}>
+              <img src={item.logoUrl} alt={`${item.organization} logo`} className={volunteeringStyles.logo} />
+              <div>
+                <h3 className={volunteeringStyles.organization}>{item.organization}</h3>
+                <p className={volunteeringStyles.role}>{item.role}</p>
+              </div>
+            </div>
+
+            <p className={volunteeringStyles.description}>{item.description}</p>
+            <span className={volunteeringStyles.period}>{item.period}</span>
+          </motion.article>
+        ))}
+      </div>
+    </div>
   </section>
 );
 

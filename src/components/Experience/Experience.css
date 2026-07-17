@@ -1,81 +1,142 @@
-.experience-timeline {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
+.experience-section {
+  padding: 7rem 32px;
 }
 
-.experience-card {
-  background: var(--bg-secondary) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  border-radius: var(--radius-lg) !important;
-  box-shadow: var(--shadow-premium), inset 0 1px 0 rgba(255, 255, 255, 1);
-  transition: var(--transition-smooth);
-}
-
-.experience-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), var(--shadow-glow);
-}
-
-.company-block {
-  display: flex;
-  align-items: center;
+.experience-stack {
+  display: grid;
   gap: 1.25rem;
 }
 
-.caslo-logo {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.35rem;
-  letter-spacing: 0.12em;
-  background: linear-gradient(135deg, #f59e0b 0%, #f43f5e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 8px 18px;
-  border-radius: 12px;
-  background-color: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.2);
-  line-height: 1;
+.experience-feature {
+  display: grid;
+  gap: 2.2rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background: var(--color-panel);
+  transition:
+    transform 500ms ease-in-out,
+    box-shadow 500ms ease-in-out;
 }
 
-.role-title {
-  font-family: var(--font-heading);
-  color: var(--text-primary);
-  font-weight: 700;
-  font-size: 1.3rem;
-  margin: 0;
+.experience-feature:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-float-strong);
 }
 
-.company-name {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  font-weight: 500;
+.experience-topline {
+  display: grid;
+  grid-template-columns: minmax(0, 0.35fr) minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: start;
 }
 
-.time-badge {
+.experience-mark {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.experience-logo {
+  width: auto;
+  height: 4.2rem;
+  object-fit: contain;
+}
+
+.experience-mark-type,
+.experience-company,
+.experience-period,
+.experience-highlight p {
+  color: var(--color-text-soft);
+}
+
+.experience-mark-type,
+.experience-period {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-secondary) !important;
-  background: rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 6px 14px;
-  border-radius: 999px;
-  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.experience-meta {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.experience-role {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+.experience-company {
+  font-size: 1rem;
+}
+
+.experience-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 2rem;
 }
 
 .experience-summary {
-  color: var(--text-secondary);
-  font-size: 1.02rem;
-  line-height: 1.8;
-  margin-top: 1.25rem;
+  margin: 0;
+  max-width: 48rem;
+  color: var(--color-text);
+  font-size: 1.1rem;
+  line-height: 1.9;
 }
 
-@media (max-width: 768px) {
-  .company-block {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+.experience-highlights {
+  display: grid;
+  gap: 1rem;
+}
+
+.experience-highlight {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.experience-highlight:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.experience-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.55rem;
+  border-radius: 999px;
+  background: var(--color-text);
+  opacity: 0.16;
+}
+
+.experience-highlight p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+@media (max-width: 960px) {
+  .experience-section {
+    padding: 5rem 22px;
+  }
+
+  .experience-topline,
+  .experience-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .experience-section {
+    padding: 5rem 18px;
+  }
+
+  .experience-feature {
+    padding: 1.4rem;
   }
 }

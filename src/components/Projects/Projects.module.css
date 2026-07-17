@@ -1,200 +1,291 @@
-.projectsSection {
-  padding: 100px 24px;
+.section {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
 }
 
-.tabsContainer {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3.5rem;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.tabButton {
-  border-radius: 999px;
-  padding: 10px 22px;
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 0.9rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.6);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: var(--transition-smooth);
-  backdrop-filter: blur(8px);
-}
-
-.tabButton:hover {
-  color: var(--text-primary);
-  border-color: rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 1);
-}
-
-.tabButton.active {
-  background: var(--accent-gradient);
-  color: #111111;
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.08), var(--shadow-glow);
-}
-
-.projectsGrid {
+.toolbar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: minmax(0, 1.4fr) minmax(20rem, 0.8fr);
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.filterRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.filterButton {
+  padding: 0.95rem 1.25rem;
+  border: none;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--color-text-soft);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition:
+    transform 500ms ease-in-out,
+    box-shadow 500ms ease-in-out,
+    color 500ms ease-in-out,
+    background-color 500ms ease-in-out;
+}
+
+.filterButton:hover {
+  transform: translateY(-2px);
+  color: var(--color-text);
+  box-shadow: var(--shadow-float);
+}
+
+.filterButtonActive {
+  background: var(--color-panel);
+  color: var(--color-text);
+  box-shadow: var(--shadow-float);
+}
+
+.categorySummary {
+  padding: 1.6rem;
+  border-radius: 2rem;
+  background: var(--color-panel);
+}
+
+.summaryLabel,
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.summaryText {
+  margin: 0.9rem 0 0;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.25rem;
+}
+
+.featuredCard,
+.projectCard {
+  overflow: hidden;
+  border-radius: 2rem;
+  background: #ffffff;
+  transition:
+    transform 500ms ease-in-out,
+    box-shadow 500ms ease-in-out;
+}
+
+.featuredCard:hover,
+.projectCard:hover {
+  transform: translateY(-6px) scale(1.008);
+  box-shadow: var(--shadow-float-strong);
+}
+
+.featuredCard {
+  display: grid;
+  grid-template-rows: minmax(18rem, 26rem) auto;
+}
+
+.featuredMedia {
+  overflow: hidden;
+  background: var(--color-panel-strong);
+}
+
+.featuredImage,
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease-in-out;
+}
+
+.featuredCard:hover .featuredImage,
+.projectCard:hover .projectImage {
+  transform: scale(1.04);
+}
+
+.featuredContent {
+  display: grid;
+  gap: 1.2rem;
+  padding: 2rem;
+}
+
+.featuredTitle {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3.3rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+.featuredDescription {
+  margin: 0;
+  color: var(--color-text-soft);
+  line-height: 1.8;
+  font-size: 1rem;
+  max-width: 44rem;
+}
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.techBadge {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-panel);
+  color: var(--color-text-soft);
+  font-size: 0.78rem;
+}
+
+.primaryLink,
+.archiveLink {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-text);
+  position: relative;
+}
+
+.primaryLink::after,
+.archiveLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.78);
+  transform-origin: left;
+  transition:
+    opacity 500ms ease-in-out,
+    transform 500ms ease-in-out;
+}
+
+.primaryLink:hover::after,
+.archiveLink:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.sideGrid {
+  display: grid;
+  gap: 1.25rem;
 }
 
 .projectCard {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-premium), inset 0 1px 0 rgba(255, 255, 255, 1);
-  transition: var(--transition-smooth);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.projectCard:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12), var(--shadow-glow);
-}
-
-.projectCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.01), transparent 50%, rgba(255, 255, 255, 0.3));
-  pointer-events: none;
+  min-height: 12rem;
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
 }
 
 .projectImage {
-  width: 100%;
-  aspect-ratio: 16/9;
-  height: auto;
-  object-fit: cover;
-  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-  display: block;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  transition: var(--transition-smooth);
+  background: var(--color-panel-strong);
 }
 
-.projectCard:hover .projectImage {
-  transform: scale(1.03);
-}
-
-.cardContent {
-  padding: 1.8rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+.projectContent {
+  display: grid;
   gap: 0.8rem;
-  position: relative;
-  z-index: 5;
-}
-
-.cardCategory {
-  text-transform: uppercase;
-  color: var(--accent-cyan);
-  font-size: 0.72rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  padding: 1.5rem;
+  align-content: start;
 }
 
 .projectTitle {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
   margin: 0;
-  color: var(--text-primary);
-  line-height: 1.35;
+  font-size: 1.35rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 400;
 }
 
 .projectDescription {
   margin: 0;
-  color: var(--text-secondary);
+  color: var(--color-text-soft);
+  line-height: 1.7;
   font-size: 0.94rem;
-  line-height: 1.65;
-}
-
-.techStack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.4rem;
-}
-
-.techBadge {
-  padding: 4px 10px;
-  border-radius: 99px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(0, 0, 0, 0.03);
-  color: var(--text-secondary);
-  font-size: 0.74rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-}
-
-.actionButton {
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  width: fit-content;
-  padding: 10px 18px;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: var(--text-primary);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 0.88rem;
-  transition: var(--transition-smooth);
-}
-
-.actionButton:hover {
-  transform: translateY(-2px);
-  border-color: rgba(0, 0, 0, 0.2);
-  background: var(--accent-gradient);
-  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
 }
 
 .pagination {
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 3rem 0 1rem;
-  flex-wrap: wrap;
-}
-
-.moreWrap {
-  display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-  .projectsSection {
-    padding: 60px 16px;
-  }
+.paginationButton,
+.paginationDot {
+  border: none;
+  background: transparent;
+  color: var(--color-text-soft);
+  cursor: pointer;
+  transition:
+    color 500ms ease-in-out,
+    transform 500ms ease-in-out;
+}
 
-  .projectsGrid {
+.paginationButton:hover,
+.paginationDot:hover {
+  color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+.paginationButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.paginationIndex {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.paginationDotActive {
+  color: var(--color-text);
+}
+
+.archiveLink {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 1100px) {
+  .toolbar,
+  .bentoGrid,
+  .projectCard {
     grid-template-columns: 1fr;
   }
+}
 
-  .tabsContainer {
-    gap: 0.5rem;
-    margin-bottom: 2.5rem;
+@media (max-width: 720px) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
-  .tabButton {
-    flex: 1 1 45%;
-    text-align: center;
-    padding: 8px 16px;
+  .featuredContent,
+  .categorySummary,
+  .projectContent {
+    padding: 1.4rem;
+  }
+
+  .pagination {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

@@ -1,209 +1,215 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import logo from "../images/My images/me.png";
-import { FaDownload, FaGithub, FaLinkedin, FaMedium, FaTerminal } from "react-icons/fa";
+import React from "react";
+import { motion, type Variants } from "framer-motion";
+import { FaArrowRight, FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import { SiKaggle } from "react-icons/si";
+import portrait from "../images/My images/me.png";
 
-const TYPEWRITER_TEXT = "AI Engineering Intern | Full-Stack Developer | IT Undergraduate";
+const focusAreas = [
+  {
+    title: "AI/ML Research",
+    copy: "Designing evaluation-first experiments, retrieval workflows, and model-backed product behavior that can be measured and improved.",
+  },
+  {
+    title: "LLM Engineering",
+    copy: "Building grounded assistants, RAG pipelines, and agentic tools with a strong emphasis on reliability, orchestration, and UX.",
+  },
+  {
+    title: "ComfyUI Automations",
+    copy: "Crafting repeatable node-based pipelines and creative automation systems that bridge prompt design, image generation, and deployment.",
+  },
+  {
+    title: "Full-Stack Architecture",
+    copy: "Shipping end-to-end systems across frontend, APIs, and data layers with performance, clarity, and maintainability in mind.",
+  },
+];
 
-const TypewriterLine: React.FC = () => {
-  const [displayText, setDisplayText] = useState("");
+const heroMetrics = [
+  { value: "25+", label: "Systems and product builds delivered" },
+  { value: "3.57", label: "Current GPA in IT & Management" },
+  { value: "UoM", label: "University of Moratuwa foundation" },
+];
 
-  useEffect(() => {
-    let index = 0;
-    const timer = window.setInterval(() => {
-      if (index < TYPEWRITER_TEXT.length) {
-        setDisplayText((current) => current + TYPEWRITER_TEXT.charAt(index));
-        index += 1;
-      } else {
-        window.clearInterval(timer);
-      }
-    }, 40);
+const socialLinks = [
+  {
+    href: "https://www.linkedin.com/in/chamilka-mihiraj-perera2002/",
+    label: "LinkedIn",
+    icon: FaLinkedin,
+  },
+  {
+    href: "https://github.com/ChamilkaMihiraj2002/",
+    label: "GitHub",
+    icon: FaGithub,
+  },
+  {
+    href: "https://www.kaggle.com/chamilkamihiraj",
+    label: "Kaggle",
+    icon: SiKaggle,
+  },
+  {
+    href: "https://medium.com/@chamilkaperera5",
+    label: "Medium",
+    icon: FaMedium,
+  },
+];
 
-    return () => window.clearInterval(timer);
-  }, []);
-
-  return (
-    <span className="typewriter-line">
-      {displayText}
-      <span className="typewriter-caret" />
-    </span>
-  );
+const reveal: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  show: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.4, 0, 0.2, 1],
+      delay,
+    },
+  }),
 };
 
 const Home: React.FC = () => {
   return (
-    <section id="home" className="hero-shell">
-      <div className="section-shell hero-grid">
+    <section id="home" className="hero-section">
+      <div className="hero-wrap">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="hero-copy"
+          className="hero-intro"
+          initial="hidden"
+          animate="show"
+          variants={reveal}
+          custom={0}
         >
-          <span className="status-pill">
-            <span className="status-dot" />
-            Active AI Engineering Intern
-          </span>
-
-          <h1 className="headline">
-            Engineering dependable software with intelligent systems.
-          </h1>
-
-          <div className="terminal-line">
-            <TypewriterLine />
+          <div className="hero-intro-rail">
+            <span className="hero-kicker">Portfolio 2026</span>
+            <span className="hero-presence">
+              Based in Sri Lanka, building globally relevant AI products.
+            </span>
           </div>
 
-          <p className="lede">
-            BSc (Hons) IT&M undergraduate at University of Moratuwa and AI engineering intern focused on turning machine intelligence,
-            automation, and modern web engineering into polished, high-performance software.
-          </p>
+          <div className="hero-copy-stack">
+            <motion.p className="hero-label" variants={reveal} custom={0.05}>
+              AI engineer, research-driven builder, and full-stack architect
+            </motion.p>
 
-          <div className="action-row">
-            <a href="#projects" className="btn-primary-neo" aria-label="View projects">
-              Explore Projects
-            </a>
-            <a href="#contact" className="btn-ghost-neo" aria-label="Contact Chamilka">
-              Get in Touch
-            </a>
+            <motion.h1 className="hero-title" variants={reveal} custom={0.1}>
+              Pure systems thinking for intelligent software.
+            </motion.h1>
+
+            <motion.p className="hero-summary" variants={reveal} custom={0.15}>
+              I design and ship elegant digital products at the intersection of
+              machine learning, LLM infrastructure, automation, and frontend
+              craft. The work is technical at its core and minimal in its
+              presentation.
+            </motion.p>
           </div>
 
-          <div className="chip-row" aria-label="Key capabilities">
-            <span className="chip">AI Agentic Workflows</span>
-            <span className="chip">React + TypeScript</span>
-            <span className="chip">Python & Automation</span>
-            <span className="chip">RAG & LLM Integration</span>
-          </div>
-
-          <div className="social-inline">
-            <a
-              href="https://www.linkedin.com/in/chamilka-mihiraj-perera2002/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="LinkedIn"
-            >
-              {React.createElement(FaLinkedin as any, { "aria-hidden": true })}
-              LinkedIn
+          <motion.div className="hero-actions" variants={reveal} custom={0.2}>
+            <a href="#projects" className="hero-cta hero-cta-primary">
+              View selected work
+              {React.createElement(FaArrowRight as React.ElementType, {
+                "aria-hidden": true,
+              })}
             </a>
-            <a
-              href="https://github.com/ChamilkaMihiraj2002/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="GitHub"
-            >
-              {React.createElement(FaGithub as any, { "aria-hidden": true })}
-              GitHub
+            <a href="#contact" className="hero-cta hero-cta-secondary">
+              Start a conversation
             </a>
-            <a
-              href="https://www.kaggle.com/chamilkamihiraj"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="Kaggle"
-            >
-              {React.createElement(SiKaggle as any, { "aria-hidden": true })}
-              Kaggle
-            </a>
-            <a
-              href="https://medium.com/@chamilkaperera5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="Medium"
-            >
-              {React.createElement(FaMedium as any, { "aria-hidden": true })}
-              Medium
-            </a>
-            <a
-              href="/cv.pdf"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="Download CV"
-            >
-              {React.createElement(FaDownload as any, { "aria-hidden": true })}
-              Download CV
-            </a>
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
-          className="hero-visual hero-panel"
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.85, delay: 0.1 }}
+          className="hero-bento"
+          initial="hidden"
+          animate="show"
+          variants={reveal}
+          custom={0.1}
         >
-          <div className="profile-panel">
-            <div className="profile-spotlight">
-              <span className="profile-badge profile-badge-top">AI-first Builder</span>
-              <div className="avatar-ring">
+          <motion.article
+            className="hero-panel hero-panel-statement"
+            variants={reveal}
+            custom={0.15}
+          >
+            <div className="hero-identity">
+              <div className="hero-portrait-wrap">
                 <img
-                  src={logo}
+                  src={portrait}
                   alt="Chamilka Mihiraj Perera"
-                  className="avatar"
+                  className="hero-portrait"
                   decoding="async"
                   fetchPriority="high"
                   loading="eager"
                 />
               </div>
-              <span className="profile-badge profile-badge-bottom">District 1st A/L</span>
+
+              <div className="hero-identity-copy">
+                <p className="hero-panel-label">Current direction</p>
+                <p className="hero-panel-copy">
+                  Reframing portfolios as product surfaces: quieter, sharper,
+                  and built to foreground high-leverage engineering work over
+                  visual noise.
+                </p>
+              </div>
+            </div>
+          </motion.article>
+
+          <motion.article
+            className="hero-panel hero-panel-focus"
+            variants={reveal}
+            custom={0.22}
+          >
+            <div className="hero-panel-heading">
+              <p className="hero-panel-label">Core practice</p>
+              <a href="/cv.pdf" download className="inline-link">
+                Download CV
+              </a>
             </div>
 
-            <div className="profile-meta">
-              <div>
-                <p className="profile-eyebrow">Featured Profile</p>
-                <h2 className="profile-name">Chamilka Mihiraj Perera</h2>
-              </div>
-              <span className="profile-availability">Available</span>
+            <div className="focus-grid" aria-label="Technical focus areas">
+              {focusAreas.map((area) => (
+                <div key={area.title} className="focus-item">
+                  <h2>{area.title}</h2>
+                  <p>{area.copy}</p>
+                </div>
+              ))}
             </div>
+          </motion.article>
 
-            <div className="stat-grid">
-              <div className="stat-card">
-                <span className="stat-value">25+</span>
-                <span className="stat-label">Projects Shipped</span>
-              </div>
-              <div className="stat-card">
-                <span className="stat-value">3.57</span>
-                <span className="stat-label">Current GPA</span>
-              </div>
-              <div className="stat-card">
-                <span className="stat-value">Moratuwa</span>
-                <span className="stat-label">University</span>
-              </div>
+          <motion.article
+            className="hero-panel hero-panel-metrics"
+            variants={reveal}
+            custom={0.3}
+          >
+            <p className="hero-panel-label">Signals</p>
+            <div className="metrics-list">
+              {heroMetrics.map((metric) => (
+                <div key={metric.label} className="metric-row">
+                  <span className="metric-value">{metric.value}</span>
+                  <span className="metric-label">{metric.label}</span>
+                </div>
+              ))}
             </div>
-          </div>
+          </motion.article>
 
-          <div className="terminal-card">
-            <div className="terminal-topbar">
-              <span className="terminal-dot terminal-dot-red" />
-              <span className="terminal-dot terminal-dot-amber" />
-              <span className="terminal-dot terminal-dot-green" />
-              <span className="terminal-file">profile_agent.py</span>
+          <motion.article
+            className="hero-panel hero-panel-links"
+            variants={reveal}
+            custom={0.36}
+          >
+            <p className="hero-panel-label">Elsewhere</p>
+            <div className="social-list">
+              {socialLinks.map(({ href, label, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-item"
+                  aria-label={label}
+                >
+                  <span className="social-item-label">{label}</span>
+                  {React.createElement(Icon as React.ElementType, {
+                    "aria-hidden": true,
+                  })}
+                </a>
+              ))}
             </div>
-            <div className="terminal-body">
-              <div className="terminal-header">
-                {React.createElement(FaTerminal as any, { "aria-hidden": true })}
-                <span>root@chamilka:~/portfolio</span>
-              </div>
-              <pre className="terminal-code">
-                <code>
-                  <span className="code-keyword">class</span> <span className="code-function">AIEngineer</span>:<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;<span className="code-keyword">def</span> <span className="code-function">__init__</span>(self):<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = <span className="code-string">"Chamilka Mihiraj Perera"</span><br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.role = <span className="code-string">"AI Engineering Intern"</span><br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.gpa = <span className="code-number">3.57</span><br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.focus = [<span className="code-string">"RAG"</span>, <span className="code-string">"AI Agents"</span>, <span className="code-string">"Fullstack"</span>]<br />
-                  <br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;<span className="code-keyword">def</span> <span className="code-function">deploy_intelligent_system</span>(self):<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="code-comment"># Turning research into dependably shipped code</span><br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="code-keyword">return</span> self.focus
-                </code>
-              </pre>
-            </div>
-          </div>
+          </motion.article>
         </motion.div>
       </div>
     </section>
