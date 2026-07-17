@@ -1,98 +1,90 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaBookOpen, FaMedium } from "react-icons/fa";
 import styles from "./Publications.module.css";
 import { publications, Publication } from "../../data/publications";
 
-const cardVariant = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const Publications: React.FC = () => {
-  const MEDIUM_URL = "https://medium.com/@chamilkaperera5";
+  const mediumUrl = "https://medium.com/@chamilkaperera5";
 
   return (
-    <section id="publications">
-      <Container>
+    <section id="publications" className={styles.section}>
+      <div className="section-shell">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Technical Writing</span>
-            <h2 className="section-title">Articles & technical explainers.</h2>
+            <span className="section-kicker">Writing</span>
+            <h2 className="section-title">Technical ideas translated into accessible reading.</h2>
             <p className="section-copy">
-              A collection of technical articles exploring computer architecture, data science libraries, and DevOps workflows.
+              Articles that make systems, tooling, and engineering concepts easier to approach
+              without flattening the technical depth behind them.
             </p>
           </div>
           <div className="section-icon">
-            {React.createElement(FaBookOpen as any, { "aria-hidden": true })}
+            {React.createElement(FaBookOpen as React.ElementType, {
+              "aria-hidden": true,
+            })}
           </div>
         </div>
 
         <div className={styles.grid}>
-          {publications.map((pub: Publication, idx: number) => (
+          {publications.map((publication: Publication, index: number) => (
             <motion.article
-              key={pub.id}
+              key={publication.id}
               className={styles.card}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.12 }}
-              variants={cardVariant}
-              transition={{ delay: idx * 0.05, duration: 0.4, ease: "easeOut" }}
-              role="article"
-              aria-labelledby={`${pub.id}-title`}
+              transition={{ delay: index * 0.05, duration: 0.6, ease: "easeInOut" }}
             >
               <div className={styles.imageContainer}>
                 <img
-                  src={pub.image}
-                  alt={pub.title}
+                  src={publication.image}
+                  alt={publication.title}
                   className={styles.image}
                   loading="lazy"
                 />
               </div>
 
               <div className={styles.content}>
-                <h3 id={`${pub.id}-title`} className={styles.title}>
-                  {pub.link ? (
+                <div className={styles.metaTop}>
+                  <span>{publication.venue}</span>
+                  <span>{publication.year}</span>
+                </div>
+
+                <h3 className={styles.title}>
+                  {publication.link ? (
                     <a
                       className={styles.link}
-                      href={pub.link}
+                      href={publication.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {pub.title}
+                      {publication.title}
                     </a>
                   ) : (
-                    pub.title
+                    publication.title
                   )}
                 </h3>
 
-                <p className={styles.description}>{pub.description}</p>
-
-                <div className={styles.meta}>
-                  {pub.venue && <span>{pub.venue}</span>}
-                  {pub.year && (
-                    <span aria-label="year published">{pub.year}</span>
-                  )}
-                </div>
+                <p className={styles.description}>{publication.description}</p>
               </div>
             </motion.article>
           ))}
         </div>
 
-        <div className="d-flex justify-content-center">
-          <a
-            href={MEDIUM_URL}
-            className="btn-ghost-neo mt-5"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="View more articles on Medium"
-          >
-            {React.createElement(FaMedium as any, { style: { verticalAlign: "middle", marginRight: 8, fontSize: 20 } })}
-            Read More on Medium
-          </a>
-        </div>
-      </Container>
+        <a
+          href={mediumUrl}
+          className={styles.moreLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View more articles on Medium"
+        >
+          {React.createElement(FaMedium as React.ElementType, {
+            "aria-hidden": true,
+          })}
+          Read more on Medium
+        </a>
+      </div>
     </section>
   );
 };

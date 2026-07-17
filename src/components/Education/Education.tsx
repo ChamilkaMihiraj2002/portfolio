@@ -1,8 +1,7 @@
 import React, { useMemo } from "react";
-import "./Education.css";
-import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaGraduationCap } from "react-icons/fa";
+import "./Education.css";
 
 import uomlog from "../../images/Education/uom.png";
 import ssclog from "../../images/Education/ssc.png";
@@ -22,122 +21,98 @@ const educationData: EducationItem[] = [
   {
     degree: "BSc. (Hons) in Information Technology and Management",
     school: "University of Moratuwa, Sri Lanka",
-    year: "2023 – Present",
-    details: "Currently focusing on Software Engineering, Intelligent Systems, and Data Science. Maintaining a current GPA of 3.57.",
+    year: "2023 - Present",
+    details:
+      "Currently focused on software engineering, intelligent systems, and data science while maintaining a GPA of 3.57.",
     logoUrl: uomlog,
   },
   {
     degree: "GCE A/L - 3A's District 1st",
     school: "Sri Sangabodhi National College",
-    year: "2021 – 2022",
-    details: "Achieved 3A's with the highest district rank in the GCE A/L examinations, demonstrating excellence in advanced level studies.",
+    year: "2021 - 2022",
+    details:
+      "Achieved the highest district rank in GCE A/L examinations with strong performance in advanced-level studies.",
     logoUrl: ssclog,
   },
   {
     degree: "Graphic Design Diploma",
     school: "Thurunu Shakthi (TSVTP)",
     year: "2018 - 2019",
-    details: "Learned vector illustration, UI layouts, and brand visual guidelines.",
+    details: "Built fundamentals in visual systems, composition, and brand-oriented design thinking.",
     logoUrl: vtalog,
   },
   {
     degree: "Human Resource Diploma",
     school: "HCMI",
     year: "2018",
-    details: "Comprehensive study in people operations and organizational psychology.",
+    details: "Studied people operations, communication, and organizational psychology.",
     logoUrl: hcmilog,
   },
   {
     degree: "Information Technology Diploma",
     school: "DIT",
     year: "2018",
-    details: "Foundational training in algorithmic structures, database schemas, and networking.",
+    details: "Established early foundations in databases, networking, and algorithmic thinking.",
     logoUrl: ditlogo,
   },
   {
     degree: "GCE O/L - 6A's 2B's C",
     school: "Sri Sangabodhi National College",
-    year: "2017 – 2018",
-     details: "Achieved 6A's, 2B's, and C in the GCE O/L examinations.",
+    year: "2017 - 2018",
+    details: "Completed secondary education with strong academic results across core subjects.",
     logoUrl: ssclog,
   },
 ];
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as any } },
-};
 
 const Education: React.FC = () => {
   const education = useMemo(() => educationData, []);
 
   return (
-    <section id="education">
-      <Container>
+    <section id="education" className="education-section">
+      <div className="section-shell">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Academic History</span>
-            <h2 className="section-title">Education & milestones.</h2>
+            <span className="section-kicker">Academic Path</span>
+            <h2 className="section-title">Education presented as a foundation, not filler.</h2>
             <p className="section-copy">
-              The academic background and foundational learning behind my engineering and software architecture patterns.
+              The academic and interdisciplinary background shaping how I approach product systems,
+              AI engineering, and problem-solving across domains.
             </p>
           </div>
           <div className="section-icon">
-            {React.createElement(FaGraduationCap as any, {
+            {React.createElement(FaGraduationCap as React.ElementType, {
               "aria-hidden": true,
             })}
           </div>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <Row className="g-4">
-            {education.map((edu, idx) => (
-              <Col key={`${edu.school}-${edu.year}-${idx}`} xs={12} md={6} lg={4}>
-                <motion.article variants={itemVariants as any} className="h-100">
-                  <Card className="edu-card border-0">
-                    <Card.Body className="p-4 d-flex flex-column h-100">
-                      <div className="d-flex align-items-center mb-3">
-                        {edu.logoUrl && (
-                          <img
-                            src={edu.logoUrl}
-                            alt={`${edu.school} logo`}
-                            className="edu-logo-img me-3"
-                          />
-                        )}
-                        <div>
-                          <h3 className="edu-title">{edu.degree}</h3>
-                          <span className="edu-school">{edu.school}</span>
-                        </div>
-                      </div>
+        <div className="edu-grid">
+          {education.map((item, index) => (
+            <motion.article
+              key={`${item.school}-${item.year}-${index}`}
+              className="edu-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.12 }}
+              transition={{ duration: 0.65, ease: "easeInOut", delay: index * 0.05 }}
+            >
+              <div className="edu-head">
+                {item.logoUrl && (
+                  <img src={item.logoUrl} alt={`${item.school} logo`} className="edu-logo-img" />
+                )}
 
-                      <div className="mt-auto">
-                        {edu.details && <p className="edu-details">{edu.details}</p>}
-                        <span className="edu-year">
-                          {edu.year}
-                        </span>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </motion.article>
-              </Col>
-            ))}
-          </Row>
-        </motion.div>
-      </Container>
+                <div className="edu-copy">
+                  <h3 className="edu-title">{item.degree}</h3>
+                  <p className="edu-school">{item.school}</p>
+                </div>
+              </div>
+
+              <p className="edu-details">{item.details}</p>
+              <span className="edu-year">{item.year}</span>
+            </motion.article>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };

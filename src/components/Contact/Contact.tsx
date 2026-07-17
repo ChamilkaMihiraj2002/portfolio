@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
           viewport={{ once: true }}
           className={styles.content}
         >
