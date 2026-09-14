@@ -44,8 +44,8 @@ const Experience: React.FC = () => {
       <div className="section-shell">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Professional History</span>
-            <h2 className="section-title">Real-world AI delivery, not just experimentation.</h2>
+            <span className="section-kicker">02 / Experience</span>
+            <h2 className="section-title">Learning by building. Growing by doing.</h2>
             <p className="section-copy">
               Industry work centered on practical LLM integration, retrieval systems, and
               engineering patterns that can move from prototype to product.

@@ -72,8 +72,8 @@ const Education: React.FC = () => {
       <div className="section-shell">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Academic Path</span>
-            <h2 className="section-title">Education presented as a foundation, not filler.</h2>
+            <span className="section-kicker">04 / Education</span>
+            <h2 className="section-title">A foundation for what comes next.</h2>
             <p className="section-copy">
               The academic and interdisciplinary background shaping how I approach product systems,
               AI engineering, and problem-solving across domains.

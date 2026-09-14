@@ -1,219 +1,48 @@
 import React from "react";
-import { motion, type Variants } from "framer-motion";
-import { FaArrowRight, FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
+import { FaArrowRight, FaArrowDown, FaGithub, FaLinkedin, FaMedium, FaDownload } from "react-icons/fa";
 import { SiKaggle } from "react-icons/si";
 import portrait from "../images/My images/me.png";
-
-const focusAreas = [
-  {
-    title: "AI/ML Research",
-    copy: "Designing evaluation-first experiments, retrieval workflows, and model-backed product behavior that can be measured and improved.",
-  },
-  {
-    title: "LLM Engineering",
-    copy: "Building grounded assistants, RAG pipelines, and agentic tools with a strong emphasis on reliability, orchestration, and UX.",
-  },
-  {
-    title: "ComfyUI Automations",
-    copy: "Crafting repeatable node-based pipelines and creative automation systems that bridge prompt design, image generation, and deployment.",
-  },
-  {
-    title: "Full-Stack Architecture",
-    copy: "Shipping end-to-end systems across frontend, APIs, and data layers with performance, clarity, and maintainability in mind.",
-  },
-];
-
-const heroMetrics = [
-  { value: "25+", label: "Systems and product builds delivered" },
-  { value: "3.57", label: "Current GPA in IT & Management" },
-  { value: "UoM", label: "University of Moratuwa foundation" },
-];
-
 const socialLinks = [
-  {
-    href: "https://www.linkedin.com/in/chamilka-mihiraj-perera2002/",
-    label: "LinkedIn",
-    icon: FaLinkedin,
-  },
-  {
-    href: "https://github.com/ChamilkaMihiraj2002/",
-    label: "GitHub",
-    icon: FaGithub,
-  },
-  {
-    href: "https://www.kaggle.com/chamilkamihiraj",
-    label: "Kaggle",
-    icon: SiKaggle,
-  },
-  {
-    href: "https://medium.com/@chamilkaperera5",
-    label: "Medium",
-    icon: FaMedium,
-  },
+    { href: "https://github.com/ChamilkaMihiraj2002/", label: "GitHub", icon: FaGithub },
+    { href: "https://www.linkedin.com/in/chamilka-mihiraj-perera2002/", label: "LinkedIn", icon: FaLinkedin },
+    { href: "https://www.kaggle.com/chamilkamihiraj", label: "Kaggle", icon: SiKaggle },
+    { href: "https://medium.com/@chamilkaperera5", label: "Medium", icon: FaMedium },
 ];
-
-const reveal: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.9,
-      ease: [0.4, 0, 0.2, 1],
-      delay,
-    },
-  }),
-};
-
-const Home: React.FC = () => {
-  return (
-    <section id="home" className="hero-section">
-      <div className="hero-wrap">
-        <motion.div
-          className="hero-intro"
-          initial="hidden"
-          animate="show"
-          variants={reveal}
-          custom={0}
-        >
-          <div className="hero-intro-rail">
-            <span className="hero-kicker">Portfolio 2026</span>
-            <span className="hero-presence">
-              Based in Sri Lanka, building globally relevant AI products.
-            </span>
+const focusAreas = [
+    { number: "01", title: "AI & machine learning", detail: "From experiments to useful intelligence." },
+    { number: "02", title: "LLMs & agents", detail: "Grounded answers. Thoughtful automation." },
+    { number: "03", title: "Full-stack engineering", detail: "The whole product, from API to interface." },
+    { number: "04", title: "Creative automation", detail: "Connecting ideas with ComfyUI workflows." },
+];
+const Home: React.FC = () => (<section id="home" className="hero-section">
+    <div className="hero-wrap">
+      <div className="hero-topline"><span><span className="status-dot"/> OPEN TO OPPORTUNITIES</span><span>SRI LANKA · WORKING WORLDWIDE</span></div>
+      <div className="hero-main">
+        <div className="hero-intro">
+          <p className="hero-greeting">Hey there, I’m Chamilka <span aria-hidden="true">✳</span></p>
+          <h1 className="hero-title">A curious mind.<br />A builder of<br /><span>intelligent things.</span></h1>
+          <p className="hero-summary">AI engineer & full-stack developer turning complex problems into thoughtful digital experiences. Built with purpose. Made for people.</p>
+          <div className="hero-actions">
+            <a href="#projects" className="hero-cta hero-cta-primary">Explore my work {React.createElement(FaArrowRight as React.ElementType, { "aria-hidden": true })}</a>
+            <a href={`${process.env.PUBLIC_URL}/cv.pdf`} download className="hero-cta hero-cta-secondary">Download CV {React.createElement(FaDownload as React.ElementType, { "aria-hidden": true })}</a>
           </div>
-
-          <div className="hero-copy-stack">
-            <motion.p className="hero-label" variants={reveal} custom={0.05}>
-              AI engineer, research-driven builder, and full-stack architect
-            </motion.p>
-
-            <motion.h1 className="hero-title" variants={reveal} custom={0.1}>
-              Pure systems thinking for intelligent software.
-            </motion.h1>
-
-            <motion.p className="hero-summary" variants={reveal} custom={0.15}>
-              I design and ship elegant digital products at the intersection of
-              machine learning, LLM infrastructure, automation, and frontend
-              craft. The work is technical at its core and minimal in its
-              presentation.
-            </motion.p>
+          <div className="hero-socials"><span>FIND ME ON</span>{socialLinks.map(({ href, label, icon }) => <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>{React.createElement(icon as React.ElementType, { "aria-hidden": true })}</a>)}</div>
+        </div>
+        <div className="hero-visual">
+          <div className="portrait-frame">
+            <div className="portrait-label"><span className="status-dot"/> CHAMILKA MIHIRAJ PERERA</div>
+            <img src={portrait} alt="Chamilka Mihiraj Perera sitting on a stool" className="hero-portrait" fetchPriority="high"/>
+            <span className="portrait-star" aria-hidden="true">✳</span>
           </div>
-
-          <motion.div className="hero-actions" variants={reveal} custom={0.2}>
-            <a href="#projects" className="hero-cta hero-cta-primary">
-              View selected work
-              {React.createElement(FaArrowRight as React.ElementType, {
-                "aria-hidden": true,
-              })}
-            </a>
-            <a href="#contact" className="hero-cta hero-cta-secondary">
-              Start a conversation
-            </a>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="hero-bento"
-          initial="hidden"
-          animate="show"
-          variants={reveal}
-          custom={0.1}
-        >
-          <motion.article
-            className="hero-panel hero-panel-statement"
-            variants={reveal}
-            custom={0.15}
-          >
-            <div className="hero-identity">
-              <div className="hero-portrait-wrap">
-                <img
-                  src={portrait}
-                  alt="Chamilka Mihiraj Perera"
-                  className="hero-portrait"
-                  decoding="async"
-                  fetchPriority="high"
-                  loading="eager"
-                />
-              </div>
-
-              <div className="hero-identity-copy">
-                <p className="hero-panel-label">Current direction</p>
-                <p className="hero-panel-copy">
-                  Reframing portfolios as product surfaces: quieter, sharper,
-                  and built to foreground high-leverage engineering work over
-                  visual noise.
-                </p>
-              </div>
-            </div>
-          </motion.article>
-
-          <motion.article
-            className="hero-panel hero-panel-focus"
-            variants={reveal}
-            custom={0.22}
-          >
-            <div className="hero-panel-heading">
-              <p className="hero-panel-label">Core practice</p>
-              <a href="/cv.pdf" download className="inline-link">
-                Download CV
-              </a>
-            </div>
-
-            <div className="focus-grid" aria-label="Technical focus areas">
-              {focusAreas.map((area) => (
-                <div key={area.title} className="focus-item">
-                  <h2>{area.title}</h2>
-                  <p>{area.copy}</p>
-                </div>
-              ))}
-            </div>
-          </motion.article>
-
-          <motion.article
-            className="hero-panel hero-panel-metrics"
-            variants={reveal}
-            custom={0.3}
-          >
-            <p className="hero-panel-label">Signals</p>
-            <div className="metrics-list">
-              {heroMetrics.map((metric) => (
-                <div key={metric.label} className="metric-row">
-                  <span className="metric-value">{metric.value}</span>
-                  <span className="metric-label">{metric.label}</span>
-                </div>
-              ))}
-            </div>
-          </motion.article>
-
-          <motion.article
-            className="hero-panel hero-panel-links"
-            variants={reveal}
-            custom={0.36}
-          >
-            <p className="hero-panel-label">Elsewhere</p>
-            <div className="social-list">
-              {socialLinks.map(({ href, label, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-item"
-                  aria-label={label}
-                >
-                  <span className="social-item-label">{label}</span>
-                  {React.createElement(Icon as React.ElementType, {
-                    "aria-hidden": true,
-                  })}
-                </a>
-              ))}
-            </div>
-          </motion.article>
-        </motion.div>
+          <div className="hero-code" aria-label="Currently exploring agentic AI, retrieval systems, and creative automation">
+            <div className="code-top"><span><i /><i /><i /></span><span>always_building.py</span></div>
+            <code><span className="code-muted"># curiosity → possibility</span><br /><span className="code-orange">while</span> curious:<br />&nbsp;&nbsp;learn<span className="code-muted">()</span><br />&nbsp;&nbsp;build<span className="code-muted">()</span><br />&nbsp;&nbsp;make_it_matter<span className="code-muted">()</span></code>
+            <div className="code-bottom"><span className="status-dot"/> A LITTLE BETTER, EVERY DAY</div>
+          </div>
+        </div>
       </div>
-    </section>
-  );
-};
-
+      <div className="hero-bottom"><p>Currently building AI at <strong>Caslo</strong> <span>↗</span><span className="hero-bottom-divider"/> Studying at <strong>University of Moratuwa</strong></p><a href="#about">A little more about me {React.createElement(FaArrowDown as React.ElementType, { "aria-hidden": true })}</a></div>
+      <div id="about" className="practice-strip">{focusAreas.map(area => <a href="#techstack" key={area.number} className="practice-item"><span className="practice-number">{area.number} /</span><h2>{area.title}</h2><p>{area.detail}</p></a>)}</div>
+    </div>
+  </section>);
 export default Home;

@@ -1,6 +1,6 @@
 .footer {
   padding: 2rem 32px 3rem;
-  background: #ffffff;
+  background: var(--color-page);
 }
 
 .container {

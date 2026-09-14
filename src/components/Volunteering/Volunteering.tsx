@@ -48,8 +48,8 @@ const Volunteering: React.FC = () => (
     <div className="section-shell">
       <div className="section-heading">
         <div>
-          <span className="section-kicker">Community Work</span>
-          <h2 className="section-title">A quieter record of leadership, teaching, and contribution.</h2>
+          <span className="section-kicker">05 / Beyond the code</span>
+          <h2 className="section-title">Good work goes beyond the screen.</h2>
           <p className="section-copy">
             Work outside the product stack where design, mentorship, embedded systems, and service
             become part of the same broader practice.

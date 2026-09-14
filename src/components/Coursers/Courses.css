@@ -1,5 +1,5 @@
 .courses-section {
-  padding: 7rem 32px;
+  padding: 5rem 40px;
 }
 
 .cert-grid {
@@ -12,7 +12,8 @@
   display: grid;
   gap: 1rem;
   padding: 1.3rem;
-  border-radius: 1.6rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-line);
   background: var(--color-panel);
   transition:
     transform 500ms ease-in-out,
@@ -36,7 +37,7 @@
   height: 2.8rem;
   border-radius: 0.9rem;
   object-fit: cover;
-  background: #ffffff;
+  background: var(--color-page);
   padding: 0.22rem;
 }
 

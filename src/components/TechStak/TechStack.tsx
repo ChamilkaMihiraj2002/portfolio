@@ -52,7 +52,7 @@ const categories: SkillCategory[] = [
       },
       { name: "Hugging Face", icon: "https://cdn.simpleicons.org/huggingface/FFD21E" },
       { name: "Google Colab", icon: "https://cdn.simpleicons.org/googlecolab/F9AB00" },
-      { name: "LLMs", icon: "https://cdn.simpleicons.org/openai/111827" },
+      { name: "LLMs", icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242824' stroke-width='1.8'%3E%3Cpath d='M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-5 3v-3H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z'/%3E%3Cpath d='M7 9h10M7 13h6'/%3E%3C/svg%3E" },
     ],
   },
     {
@@ -135,8 +135,8 @@ const TechStack: React.FC = () => {
       <div className="section-shell">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Capabilities</span>
-            <h2 className="section-title">A toolkit organized around shipping intelligent systems.</h2>
+            <span className="section-kicker">03 / The toolkit</span>
+            <h2 className="section-title">The tools behind the thinking.</h2>
             <p className="section-copy">
               The stack spans applied AI, interface engineering, backend delivery, databases, and
               the hardware layer where necessary.
