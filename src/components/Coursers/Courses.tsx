@@ -43,8 +43,8 @@ const Courses: React.FC = () => {
       <div className="section-shell">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Continuous Learning</span>
-            <h2 className="section-title">Certifications arranged as focused depth, not a badge wall.</h2>
+            <span className="section-kicker">06 / Always learning</span>
+            <h2 className="section-title">Curiosity doesn’t graduate.</h2>
             <p className="section-copy">
               Structured learning across machine learning, Python, DevOps, data science, and
               platform fundamentals from globally recognized programs.

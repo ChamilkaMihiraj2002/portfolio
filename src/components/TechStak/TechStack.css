@@ -1,6 +1,6 @@
 .skills-section {
-  padding: 7rem 32px;
-  background: #ffffff;
+  padding: 5rem 40px;
+  background: var(--color-page);
 }
 
 .skills-grid {
@@ -10,8 +10,9 @@
 }
 
 .skills-category-card {
-  background: #ffffff;
-  border-radius: 2rem;
+  background: var(--color-page);
+  border-radius: 12px;
+  border: 1px solid var(--color-line);
   padding: 1.7rem;
   transition:
     transform 500ms ease-in-out,
@@ -23,7 +24,7 @@
 }
 
 .skills-category-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-float-strong);
 }
 
@@ -53,7 +54,7 @@
   align-items: center;
   gap: 0.55rem;
   padding: 0.7rem 0.9rem;
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--color-badge);
   border-radius: 999px;
   color: var(--color-text-soft);
   transition:
@@ -92,4 +93,10 @@
   .skills-category-card {
     padding: 1.4rem;
   }
+}
+
+:root[data-theme="dark"] .skill-icon-img {
+  background: #f8f7f3;
+  border-radius: 3px;
+  padding: 1px;
 }

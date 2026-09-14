@@ -12,8 +12,8 @@ const Publications: React.FC = () => {
       <div className="section-shell">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Writing</span>
-            <h2 className="section-title">Technical ideas translated into accessible reading.</h2>
+            <span className="section-kicker">07 / Notes & ideas</span>
+            <h2 className="section-title">Things I’ve learned along the way.</h2>
             <p className="section-copy">
               Articles that make systems, tooling, and engineering concepts easier to approach
               without flattening the technical depth behind them.

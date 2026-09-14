@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
         const subject = encodeURIComponent(`Contact from ${form.name}`);
         const body = encodeURIComponent(`${form.message}\n\n- ${form.name} (${form.email})`);
         window.location.href = `mailto:chamilka2002@gmail.com?subject=${subject}&body=${body}`;
-        setStatusMessage("Opened your mail client as a fallback.");
+        setStatusMessage("Your email draft is ready in your mail app. Send it there to get in touch.");
       }
     } catch (error) {
       void error;
@@ -82,9 +82,9 @@ const Contact: React.FC = () => {
       <div className={styles.container}>
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Get In Touch</span>
+            <span className="section-kicker">08 / Have something in mind?</span>
             <h2 id="contactHeading" className="section-title">
-              Let&apos;s build something useful together.
+              Let’s make something great.
             </h2>
             <p className="section-copy">
               Open to internship opportunities, software engineering roles, collaborations, and thoughtful AI engineering dialogue.
@@ -169,7 +169,8 @@ const Contact: React.FC = () => {
                   type="text"
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="Your Name"
+                  autoComplete="name"
+                  placeholder="Your name"
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? "name-error" : undefined}
                 />
@@ -191,6 +192,7 @@ const Contact: React.FC = () => {
                   type="email"
                   value={form.email}
                   onChange={handleChange}
+                  autoComplete="email"
                   placeholder="name@example.com"
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? "email-error" : undefined}
